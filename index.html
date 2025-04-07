@@ -3,13 +3,12 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="utf-8" />
-        <meta name="keywords" content="Welcome to HKBUS" />
         <meta name="description" content="" />
         <meta
             name="page_type"
             content="np-template-header-footer-from-plugin"
         />
-        <title>HOME</title>
+        <title>Barneysbro Apps</title>
         <link rel="stylesheet" href="nicepage.css" media="screen" />
         <link rel="stylesheet" href="HOME.css" media="screen" />
         <script
@@ -40,7 +39,7 @@
                 "logo": "images/Icon-App-60x603x.png"
             }
         </script>
-        <meta property="og:title" content="HOME" />
+        <meta property="og:title" content="Barneysbro Apps" />
         <meta property="og:type" content="website" />
         <meta name="theme-color" content="#478ac9" />
         <link rel="canonical" href="index.html" />
@@ -116,10 +115,26 @@
                             </li>
                             <li class="u-nav-item">
                                 <a
+                                    href="https://apps.apple.com/hk/developer/wei-hsiang-chen/id1016836733"
+                                    class="u-button-style u-nav-link u-text-active-black u-text-hover-palette-2-base"
+                                    style="padding: 10px 20px"
+                                    >SGBUS</a
+                                >
+                            </li>
+                            <li class="u-nav-item">
+                                <a
                                     href="https://apps.apple.com/tw/app/id1501309455"
                                     class="u-button-style u-nav-link u-text-active-black u-text-hover-palette-2-base"
                                     style="padding: 10px 20px"
                                     >台北倒垃圾</a
+                                >
+                            </li>
+                            <li class="u-nav-item">
+                                <a
+                                    href="https://apps.apple.com/tw/app/id1482596231"
+                                    class="u-button-style u-nav-link u-text-active-black u-text-hover-palette-2-base"
+                                    style="padding: 10px 20px"
+                                    >台北公車</a
                                 >
                             </li>
                             <li class="u-nav-item">
@@ -164,7 +179,7 @@
                             </li>
                             <li class="u-nav-item">
                                 <a
-                                    href="mailto: hkbus.contacts@gmail.com"
+                                    href="mailto: barneysbro.app@gmail.com"
                                     class="u-border-2 u-btn u-button-style u-none u-btn-1"
                                     style="padding: 10px 20px"
                                     >Contact Us</a
@@ -191,10 +206,26 @@
                                     </li>
                                     <li class="u-nav-item">
                                         <a
+                                            href="https://apps.apple.com/hk/developer/wei-hsiang-chen/id1016836733"
+                                            class="u-button-style u-nav-link"
+                                            style="padding: 10px 20px"
+                                            >SGBUS</a
+                                        >
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a
                                             href="https://apps.apple.com/tw/app/id1501309455"
                                             class="u-button-style u-nav-link"
                                             style="padding: 10px 20px"
                                             >台北倒垃圾</a
+                                        >
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a
+                                            href="https://apps.apple.com/tw/app/id1482596231"
+                                            class="u-button-style u-nav-link"
+                                            style="padding: 10px 20px"
+                                            >台北公車</a
                                         >
                                     </li>
                                     <li class="u-nav-item">
@@ -239,7 +270,7 @@
                                     </li>
                                     <li class="u-nav-item">
                                         <a
-                                            href="mailto: hkbus.contacts@gmail.com"
+                                            href="mailto: barneysbro.app@gmail.com"
                                             class="u-button-style u-nav-link"
                                             style="padding: 10px 20px"
                                             >Contact Us</a
@@ -255,11 +286,31 @@
                 </nav>
             </div>
         </header>
-        <section class="u-align-right u-clearfix u-image u-section-1">
-            <div
-                class="u-clearfix u-sheet u-valign-bottom u-align-left u-sheet-1"
-            ></div>
-        </section>
+
+        <body>
+            <div class="image-container">
+                <img id="slideshow" src="images/COVER.jpg" alt="Responsive" />
+            </div>
+
+            <script>
+                const images = [
+                    'images/COVER.jpg',
+                    'images/TPEGARBAGE_COVER.jpg',
+                ];
+
+                let currentIndex = 0;
+                const imageElement = document.getElementById('slideshow');
+
+                // Function to change the image
+                function changeImage() {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    imageElement.src = images[currentIndex];
+                }
+
+                // Set the interval to change the image every 3 seconds
+                setInterval(changeImage, 3000); // 3000 ms = 3 seconds
+            </script>
+        </body>
 
         <footer
             class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
@@ -267,8 +318,8 @@
         >
             <div class="u-clearfix u-sheet u-sheet-1">
                 <p class="u-small-text u-text u-text-variant u-text-1">
-                    Barneysbro. Your Bro.<br />
-                    Email: hkbus.contacts@gmail.com
+                    Barneysbro, your bro.<br />
+                    Email: barneysbro.app@gmail.com
                 </p>
             </div>
         </footer>
