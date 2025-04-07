@@ -1,34 +1,425 @@
 <!DOCTYPE html>
-<html style="background-color:rgb(251, 198, 33);">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<h1>Lost And Found</h1>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Lost and Found - Hong Kong Bus Companies Contact Information
+        </title>
+        <meta
+            name="description"
+            content="Hong Kong bus lost and found assistance center, providing contact information and service hours for KMB, Citybus, NLB and other bus companies."
+        />
 
-<h2>KMB</h2>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-<p>Phone：<a href="tel:37081333">3708-1333</a> (Lost property on bus function)</p>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                    Roboto, 'Helvetica Neue', Arial, sans-serif;
+                background: linear-gradient(135deg, #fbc621 0%, #f5b800 100%);
+                color: #252627;
+                min-height: 100vh;
+                padding: 0;
+                line-height: 1.6;
+            }
 
-<p>Office Hour：9:00 to 18:30. Monday to Friday except for public holidays</p>
+            .container {
+                max-width: 480px;
+                margin: 0 auto;
+                padding: 20px 16px;
+                min-height: 100vh;
+            }
 
-<p>&nbsp;</p>
+            .header {
+                text-align: center;
+                margin-bottom: 32px;
+                padding: 24px 16px;
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 16px;
+                box-shadow: 0 4px 20px rgba(37, 38, 39, 0.15);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(251, 198, 33, 0.3);
+            }
 
-<h2>CTB</h2>
+            .header h1 {
+                font-size: clamp(24px, 6vw, 32px);
+                font-weight: 700;
+                color: #252627;
+                margin-bottom: 8px;
+                line-height: 1.2;
+            }
 
-<p>Lost Report Website：<a href="https://www.citybus.com.hk/onlineform/tc/report-lost">https://www.citybus.com.hk/onlineform/tc/report-lost</a></p>
+            .header p {
+                font-size: 16px;
+                color: #666;
+                opacity: 0.9;
+            }
 
-<p>Phone：<a href="tel:21368888">2136-8888</a></p>
+            .company-card {
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 16px;
+                padding: 24px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 20px rgba(37, 38, 39, 0.12);
+                border: 1px solid rgba(251, 198, 33, 0.2);
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+            }
 
-<p>Office Hour：8:00 to 20:00 Everyday</p>
+            .company-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 30px rgba(37, 38, 39, 0.18);
+                border-color: #fbc621;
+            }
 
-<p>&nbsp;</p>
+            .company-card:last-child {
+                margin-bottom: 32px;
+            }
 
-<h2>NLB</h2>
+            .company-name {
+                font-size: 22px;
+                font-weight: 600;
+                color: #252627;
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
 
-<p>Phone：<a href="tel:29849848">2984-9848</a></p>
+            .company-name::before {
+                content: '🚌';
+                font-size: 20px;
+            }
 
-<p>Office Hour﹕9:00 to 18:00 Everyday</p>
+            .contact-item {
+                margin-bottom: 12px;
+                padding: 12px 16px;
+                background: rgba(251, 198, 33, 0.08);
+                border-radius: 12px;
+                border-left: 4px solid #fbc621;
+            }
 
-<p>Contact Email：<a href="mailto:info@nlb.com.hk?subject=%E9%81%BA%E5%A4%B1%E7%89%A9%E5%93%81&amp;body=%E5%A4%B1%E7%89%A9%E8%B3%87%E6%96%99%EF%BC%9A%0A%E6%89%80%E4%B9%98%E5%B7%B4%E5%A3%AB%E8%B7%AF%E7%B7%9A%EF%BC%9A%0A%E7%9B%AE%E7%9A%84%E5%9C%B0%EF%BC%9A%0A%E4%B9%98%E8%BB%8A%E6%99%82%E9%96%93%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E6%96%B9%E6%B3%95%EF%BC%9A">info@nlb.com.hk</a></p>
+            .contact-item:last-child {
+                margin-bottom: 0;
+            }
 
+            .contact-label {
+                font-size: 14px;
+                font-weight: 500;
+                color: #666;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .contact-value {
+                font-size: 16px;
+                color: #252627;
+                line-height: 1.5;
+            }
+
+            .contact-value a {
+                color: #252627;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                word-break: break-all;
+            }
+
+            .contact-value a:hover {
+                color: #fbc621;
+                text-decoration: underline;
+            }
+
+            .phone-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                background: #252627;
+                color: white !important;
+                border-radius: 25px;
+                text-decoration: none !important;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                margin-top: 4px;
+            }
+
+            .phone-link:hover {
+                background: #fbc621;
+                color: #252627 !important;
+                transform: scale(1.02);
+            }
+
+            .phone-link::before {
+                content: '📞';
+                font-size: 14px;
+            }
+
+            .service-hours {
+                font-size: 14px;
+                color: #666;
+                font-style: italic;
+                margin-top: 8px;
+                padding: 8px 12px;
+                background: rgba(251, 198, 33, 0.1);
+                border-radius: 8px;
+                border: 1px solid rgba(251, 198, 33, 0.2);
+            }
+
+            .email-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                background: #252627;
+                color: white !important;
+                border-radius: 25px;
+                text-decoration: none !important;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                margin-top: 4px;
+                font-size: 14px;
+            }
+
+            .email-link:hover {
+                background: #fbc621;
+                color: #252627 !important;
+                transform: scale(1.02);
+            }
+
+            .email-link::before {
+                content: '✉️';
+                font-size: 14px;
+            }
+
+            .website-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                background: #252627;
+                color: white !important;
+                border-radius: 25px;
+                text-decoration: none !important;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                margin-top: 4px;
+                font-size: 14px;
+            }
+
+            .website-link:hover {
+                background: #fbc621;
+                color: #252627 !important;
+                transform: scale(1.02);
+            }
+
+            .website-link::before {
+                content: '🌐';
+                font-size: 14px;
+            }
+
+            .footer {
+                text-align: center;
+                padding: 24px;
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 16px;
+                margin-top: 20px;
+                border: 1px solid rgba(251, 198, 33, 0.3);
+            }
+
+            .footer p {
+                font-size: 14px;
+                color: #666;
+                line-height: 1.5;
+            }
+
+            /* Mobile optimization */
+            @media (max-width: 480px) {
+                .container {
+                    padding: 16px 12px;
+                }
+
+                .header {
+                    padding: 20px 16px;
+                    margin-bottom: 24px;
+                }
+
+                .company-card {
+                    padding: 20px;
+                    margin-bottom: 16px;
+                }
+
+                .contact-item {
+                    padding: 10px 14px;
+                }
+
+                .phone-link,
+                .email-link,
+                .website-link {
+                    padding: 10px 14px;
+                    font-size: 14px;
+                }
+            }
+
+            /* Dark theme support */
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background: linear-gradient(
+                        135deg,
+                        #252627 0%,
+                        #1a1b1c 100%
+                    );
+                    color: #ffffff;
+                }
+
+                .header,
+                .company-card {
+                    background: rgba(251, 198, 33, 0.05);
+                    color: #ffffff;
+                    border: 1px solid rgba(251, 198, 33, 0.2);
+                }
+
+                .header h1,
+                .company-name,
+                .contact-value {
+                    color: #ffffff;
+                }
+
+                .header p,
+                .contact-label {
+                    color: #cccccc;
+                }
+
+                .contact-item {
+                    background: rgba(251, 198, 33, 0.1);
+                    border-left-color: #fbc621;
+                }
+
+                .service-hours {
+                    color: #cccccc;
+                    background: rgba(251, 198, 33, 0.08);
+                    border-color: rgba(251, 198, 33, 0.3);
+                }
+
+                .footer {
+                    background: rgba(251, 198, 33, 0.05);
+                    border: 1px solid rgba(251, 198, 33, 0.2);
+                }
+
+                .footer p {
+                    color: #cccccc;
+                }
+
+                .phone-link,
+                .email-link,
+                .website-link {
+                    background: #fbc621;
+                    color: #252627 !important;
+                }
+
+                .phone-link:hover,
+                .email-link:hover,
+                .website-link:hover {
+                    background: #ffffff;
+                    color: #252627 !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Lost and Found</h1>
+                <p>Hong Kong Bus Companies Contact Information</p>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">KMB (Kowloon Motor Bus)</div>
+
+                <div class="contact-item">
+                    <div class="contact-label">Service Phone</div>
+                    <div class="contact-value">
+                        <a href="tel:37081333" class="phone-link"
+                            >3708-1333 (Lost Property)</a
+                        >
+                    </div>
+                </div>
+
+                <div class="service-hours">
+                    ⏰ Office Hours: Monday to Friday 9:00 AM to 6:30 PM, except
+                    public holidays
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Citybus (CTB)</div>
+
+                <div class="contact-item">
+                    <div class="contact-label">Service Phone</div>
+                    <div class="contact-value">
+                        <a href="tel:21368888" class="phone-link">2136-8888</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-label">Online Report</div>
+                    <div class="contact-value">
+                        <a
+                            href="https://www.citybus.com.hk/onlineform/tc/report-lost"
+                            target="_blank"
+                            class="website-link"
+                        >
+                            Lost Property Website
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-hours">
+                    ⏰ Service Hours: 8:00 AM to 8:00 PM daily, recorded message
+                    service available during non-office hours
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">NLB (New Lantao Bus)</div>
+
+                <div class="contact-item">
+                    <div class="contact-label">Service Phone</div>
+                    <div class="contact-value">
+                        <a href="tel:29849848" class="phone-link">2984-9848</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-label">Email Contact</div>
+                    <div class="contact-value">
+                        <a
+                            href="mailto:info@nlb.com.hk?subject=Lost%20Property&body=Lost%20Item%20Details:%0ABus%20Route:%0ADestination:%0ATravel%20Time:%0AContact%20Method:"
+                            class="email-link"
+                        >
+                            Send Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-hours">
+                    ⏰ Service Hours: Monday to Sunday 9:00 AM to 6:00 PM
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>
+                    💡 Tip: Please prepare your travel details before calling,
+                    including route number, boarding/alighting locations, and
+                    travel time to help staff assist with your inquiry.
+                </p>
+            </div>
+        </div>
+    </body>
 </html>

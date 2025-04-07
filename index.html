@@ -1,276 +1,577 @@
 <!DOCTYPE html>
-<html style="font-size: 16px">
+<html lang="zh-TW">
     <head>
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charset="utf-8" />
-        <meta name="keywords" content="Welcome to HKBUS" />
-        <meta name="description" content="" />
+        <title>Barneysbro Apps - 交通與生活應用程式開發者</title>
         <meta
-            name="page_type"
-            content="np-template-header-footer-from-plugin"
+            name="description"
+            content="Barneysbro 開發的優質移動應用程式：HKBUS 香港巴士、SGBUS 新加坡巴士、台北倒垃圾、台北公車。提供即時交通資訊和生活便利服務。"
         />
-        <title>HOME</title>
-        <link rel="stylesheet" href="nicepage.css" media="screen" />
-        <link rel="stylesheet" href="HOME.css" media="screen" />
-        <script
-            class="u-script"
-            type="text/javascript"
-            src="jquery.js"
-            defer=""
-        ></script>
-        <script
-            class="u-script"
-            type="text/javascript"
-            src="nicepage.js"
-            defer=""
-        ></script>
-        <meta name="generator" content="Nicepage 2.30.1, nicepage.com" />
-        <link
-            id="u-theme-google-font"
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+        <meta
+            name="keywords"
+            content="HKBUS, SGBUS, 台北倒垃圾, 台北公車, 巴士app, 交通app, 垃圾車時間, Barneysbro"
+        />
+        <meta name="author" content="Barney Chen" />
+
+        <!-- Open Graph Meta Tags -->
+        <meta
+            property="og:title"
+            content="Barneysbro Apps - 交通與生活應用程式"
+        />
+        <meta
+            property="og:description"
+            content="專業的交通與生活應用程式開發，包含香港、新加坡巴士查詢及台北生活服務。"
+        />
+        <meta
+            property="og:image"
+            content="https://barneysbro.github.io/images/COVER.jpg"
+        />
+        <meta property="og:url" content="https://barneysbro.github.io" />
+        <meta property="og:type" content="website" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Barneysbro Apps" />
+        <meta
+            name="twitter:description"
+            content="專業的交通與生活應用程式開發"
+        />
+        <meta
+            name="twitter:image"
+            content="https://barneysbro.github.io/images/COVER.jpg"
         />
 
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://barneysbro.github.io" />
+
+        <!-- Structured Data -->
         <script type="application/ld+json">
             {
-                "@context": "http://schema.org",
+                "@context": "https://schema.org",
                 "@type": "Organization",
-                "name": "",
-                "url": "index.html",
-                "logo": "images/Icon-App-60x603x.png"
+                "name": "Barneysbro",
+                "description": "Mobile app developer specializing in transportation and lifestyle apps",
+                "url": "https://barneysbro.github.io",
+                "logo": "https://barneysbro.github.io/images/Icon-App-60x603x.png",
+                "email": "barneysbro.app@gmail.com",
+                "sameAs": [
+                    "https://www.facebook.com/hkbusbus/",
+                    "https://www.instagram.com/hkbusbus/",
+                    "https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
+                ],
+                "makesOffer": [
+                    {
+                        "@type": "SoftwareApplication",
+                        "name": "HKBUS",
+                        "operatingSystem": "iOS",
+                        "applicationCategory": "TransportationApplication"
+                    },
+                    {
+                        "@type": "SoftwareApplication",
+                        "name": "台北倒垃圾",
+                        "operatingSystem": "iOS",
+                        "applicationCategory": "UtilitiesApplication"
+                    }
+                ]
             }
         </script>
-        <meta property="og:title" content="HOME" />
-        <meta property="og:type" content="website" />
-        <meta name="theme-color" content="#478ac9" />
-        <link rel="canonical" href="index.html" />
-        <meta property="og:url" content="index.html" />
+
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" href="images/Icon-App-60x603x.png" type="image/png" />
     </head>
-    <body data-home-page="HOME.html" data-home-page-title="HOME" class="u-body">
-        <header
-            class="u-clearfix u-custom-color-1 u-header u-header"
-            id="sec-7e4e"
-        >
-            <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-                <div class="u-custom-menu u-nav-container">
-                    <ul class="u-nav u-unstyled u-nav-1">
-                        <li class="u-nav-item"></li>
-                    </ul>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img
+                        src="images/HKBUS/icon/icon.png"
+                        alt="Barneysbro Logo"
+                    />
+                    <span>Barneysbro</span>
                 </div>
-                <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-                    <div
-                        class="menu-collapse"
-                        style="
-                            font-size: 1rem;
-                            letter-spacing: 0px;
-                            font-weight: 700;
-                        "
-                    >
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">首頁</a>
+                    <a href="#apps" class="nav-link">應用程式</a>
+                    <a href="#about" class="nav-link">關於我們</a>
+                    <a href="#contact" class="nav-link">聯絡我們</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        優質移動應用程式
+                        <span class="highlight">讓生活更便利</span>
+                    </h1>
+                    <p class="hero-description">
+                        專注於交通與生活服務的應用程式開發，為香港、新加坡、倫敦、台灣用戶提供即時、準確的資訊服務。
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#apps" class="btn btn-primary">探索應用程式</a>
                         <a
-                            class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-black u-text-hover-palette-2-base"
-                            href="#"
+                            href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
+                            class="btn btn-download"
+                            target="_blank"
                         >
-                            <svg>
-                                <use xlink:href="#menu-hamburger"></use>
-                            </svg>
-                            <svg
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                            >
-                                <defs>
-                                    <symbol
-                                        id="menu-hamburger"
-                                        viewBox="0 0 16 16"
-                                        style="width: 16px; height: 16px"
-                                    >
-                                        <rect
-                                            y="1"
-                                            width="16"
-                                            height="2"
-                                        ></rect>
-                                        <rect
-                                            y="7"
-                                            width="16"
-                                            height="2"
-                                        ></rect>
-                                        <rect
-                                            y="13"
-                                            width="16"
-                                            height="2"
-                                        ></rect>
-                                    </symbol>
-                                </defs>
-                            </svg>
+                            <img
+                                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on App Store"
+                                style="height: 40px"
+                            />
                         </a>
                     </div>
-                    <div class="u-custom-menu u-nav-container">
-                        <ul class="u-nav u-unstyled u-nav-1">
-                            <li class="u-nav-item">
-                                <a
-                                    href="https://apps.apple.com/hk/app/id1480194097"
-                                    class="u-button-style u-nav-link u-text-active-black u-text-hover-palette-2-base"
-                                    style="padding: 10px 20px"
-                                    >HKBUS</a
-                                >
-                            </li>
-                            <li class="u-nav-item">
-                                <a
-                                    href="https://apps.apple.com/tw/app/id1501309455"
-                                    class="u-button-style u-nav-link u-text-active-black u-text-hover-palette-2-base"
-                                    style="padding: 10px 20px"
-                                    >台北倒垃圾</a
-                                >
-                            </li>
-                            <li class="u-nav-item">
-                                <a
-                                    href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
-                                    class="u-border-2 u-btn u-button-style u-none u-btn-1"
-                                    style="padding: 10px 20px"
-                                    >App Store</a
-                                >
-                            </li>
-                            <li class="u-nav-item">
-                                <a
-                                    href="https://www.facebook.com/hkbusbus/"
-                                    class="u-border-2 u-btn u-button-style u-none u-btn-1"
-                                    style="padding: 10px 20px"
-                                    >Facebook</a
-                                >
-                            </li>
-                            <li class="u-nav-item">
-                                <a
-                                    href="https://www.instagram.com/hkbusbus/"
-                                    class="u-border-2 u-btn u-button-style u-none u-btn-1"
-                                    style="padding: 10px 20px"
-                                    >Instagram</a
-                                >
-                            </li>
-                            <li class="u-nav-item">
-                                <a
-                                    href="privacy.html"
-                                    class="u-border-2 u-btn u-button-style u-none u-btn-1"
-                                    style="padding: 10px 20px"
-                                    >Privacy Policy</a
-                                >
-                            </li>
-                            <li class="u-nav-item">
-                                <a
-                                    href="terms.html"
-                                    class="u-border-2 u-btn u-button-style u-none u-btn-1"
-                                    style="padding: 10px 20px"
-                                    >Terms & Conditions</a
-                                >
-                            </li>
-                            <li class="u-nav-item">
-                                <a
-                                    href="mailto: hkbus.contacts@gmail.com"
-                                    class="u-border-2 u-btn u-button-style u-none u-btn-1"
-                                    style="padding: 10px 20px"
-                                    >Contact Us</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="u-custom-menu u-nav-container-collapse">
-                        <div
-                            class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav"
-                        >
-                            <div class="u-sidenav-overflow">
-                                <div class="u-menu-close"></div>
-                                <ul
-                                    class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"
-                                >
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="https://apps.apple.com/hk/app/id1480194097"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >HKBUS</a
-                                        >
-                                    </li>
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="https://apps.apple.com/tw/app/id1501309455"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >台北倒垃圾</a
-                                        >
-                                    </li>
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >App Store</a
-                                        >
-                                    </li>
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="https://www.facebook.com/hkbusbus/"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >Facebook</a
-                                        >
-                                    </li>
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="https://www.instagram.com/hkbusbus/"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >Instagram</a
-                                        >
-                                    </li>
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="privacy.html"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >Privacy Policy</a
-                                        >
-                                    </li>
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="terms.html"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >Terms & Conditions</a
-                                        >
-                                    </li>
-                                    <li class="u-nav-item">
-                                        <a
-                                            href="mailto: hkbus.contacts@gmail.com"
-                                            class="u-button-style u-nav-link"
-                                            style="padding: 10px 20px"
-                                            >Contact Us</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h3>5</h3>
+                            <p>應用程式</p>
                         </div>
-                        <div
-                            class="u-black u-menu-overlay u-opacity u-opacity-70"
-                        ></div>
+                        <div class="stat">
+                            <h3>561K+</h3>
+                            <p>總下載次數</p>
+                        </div>
+                        <div class="stat">
+                            <h3>4</h3>
+                            <p>服務地區</p>
+                        </div>
                     </div>
-                </nav>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img
+                                src="images/hero-app-preview.jpg"
+                                alt="App Preview"
+                                id="hero-preview"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
-        <section class="u-align-right u-clearfix u-image u-section-1">
-            <div
-                class="u-clearfix u-sheet u-valign-bottom u-align-left u-sheet-1"
-            ></div>
         </section>
 
-        <footer
-            class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
-            id="sec-1423"
-        >
-            <div class="u-clearfix u-sheet u-sheet-1">
-                <p class="u-small-text u-text u-text-variant u-text-1">
-                    Barneysbro. Your Bro.<br />
-                    Email: hkbus.contacts@gmail.com
-                </p>
+        <!-- Apps Section -->
+        <section id="apps" class="apps-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>我們的應用程式</h2>
+                    <p>為不同地區用戶量身打造的交通與生活服務應用</p>
+                </div>
+
+                <div class="apps-grid">
+                    <!-- HKBUS App -->
+                    <div class="app-card" data-app="hkbus">
+                        <div class="app-icon">
+                            <img
+                                src="images/HKBUS/icon/icon.png"
+                                alt="HKBUS App Icon"
+                            />
+                        </div>
+                        <div class="app-info">
+                            <h3>HKBUS</h3>
+                            <p class="app-tagline">香港最全面的巴士即時查詢</p>
+                            <p class="app-description">
+                                香港最全面的巴士即時查詢應用程式，支援九巴、龍運巴士、城巴、嶼巴、綠色小巴、港鐵巴士等所有主要巴士公司。提供準確的到站時間預測、智能搜尋、地圖定位、小工具支援和多語言介面，是香港市民日常出行的最佳助手。
+                            </p>
+                            <div
+                                class="app-screenshots-preview"
+                                id="screenshots-hkbus"
+                            >
+                                <div class="screenshots-slider">
+                                    <!-- Screenshots will be loaded dynamically -->
+                                </div>
+                            </div>
+                            <div class="app-features">
+                                <span class="feature-tag">全港覆蓋</span>
+                                <span class="feature-tag">即時查詢</span>
+                                <span class="feature-tag">智能搜尋</span>
+                                <span class="feature-tag">小工具支援</span>
+                                <span class="feature-tag">多語言介面</span>
+                            </div>
+                            <div class="app-actions">
+                                <button
+                                    class="btn btn-preview"
+                                    onclick="showAppDetails('hkbus')"
+                                >
+                                    查看詳情
+                                </button>
+                                <a
+                                    href="https://apps.apple.com/hk/app/id1480194097"
+                                    class="btn btn-download"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                        alt="Download on App Store"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SGBUS App -->
+                    <div class="app-card" data-app="sgbus">
+                        <div class="app-icon">
+                            <img
+                                src="images/SGBUS/icon/icon.png"
+                                alt="SGBUS App Icon"
+                            />
+                        </div>
+                        <div class="app-info">
+                            <h3>SGBUS</h3>
+                            <p class="app-tagline">新加坡公共交通專家</p>
+                            <p class="app-description">
+                                整合新加坡所有主要巴士營運商（SBST、GAS、SMRT、TTS）的即時到站查詢應用程式。提供清晰易用的介面設計，支援路線瀏覽、地圖定位、收藏管理和桌面小工具等功能，是新加坡通勤族和遊客的最佳出行助手。
+                            </p>
+                            <div
+                                class="app-screenshots-preview"
+                                id="screenshots-sgbus"
+                            >
+                                <div class="screenshots-slider">
+                                    <!-- Screenshots will be loaded dynamically -->
+                                </div>
+                            </div>
+                            <div class="app-features">
+                                <span class="feature-tag">全島覆蓋</span>
+                                <span class="feature-tag">智能定位</span>
+                                <span class="feature-tag">桌面小工具</span>
+                                <span class="feature-tag">收藏管理</span>
+                                <span class="feature-tag">多重搜尋</span>
+                            </div>
+                            <div class="app-actions">
+                                <button
+                                    class="btn btn-preview"
+                                    onclick="showAppDetails('sgbus')"
+                                >
+                                    查看詳情
+                                </button>
+                                <a
+                                    href="https://apps.apple.com/hk/developer/wei-hsiang-chen/id1016836733"
+                                    class="btn btn-download"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                        alt="Download on App Store"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 台北倒垃圾 App -->
+                    <div class="app-card" data-app="tpegarbage">
+                        <div class="app-icon">
+                            <img
+                                src="images/TPEGARBAGE/icon/icon.png"
+                                alt="台北倒垃圾 App Icon"
+                            />
+                        </div>
+                        <div class="app-info">
+                            <h3>台北倒垃圾</h3>
+                            <p class="app-tagline">台北垃圾車追蹤專家</p>
+                            <p class="app-description">
+                                專為台灣都會區垃圾清運設計的智慧型地圖應用程式，整合台北市、新北市、基隆市垃圾車時刻表與行人垃圾桶位置資訊。提供即時地圖瀏覽、分類地圖模式和常用站點收藏功能，讓您輕鬆掌握清運時間與地點，再也不會錯過垃圾車。
+                            </p>
+                            <div
+                                class="app-screenshots-preview"
+                                id="screenshots-tpegarbage"
+                            >
+                                <div class="screenshots-slider">
+                                    <!-- Screenshots will be loaded dynamically -->
+                                </div>
+                            </div>
+                            <div class="app-features">
+                                <span class="feature-tag">即時地圖</span>
+                                <span class="feature-tag">分類模式</span>
+                                <span class="feature-tag">收藏功能</span>
+                                <span class="feature-tag">三區覆蓋</span>
+                                <span class="feature-tag">推播提醒</span>
+                            </div>
+                            <div class="app-actions">
+                                <button
+                                    class="btn btn-preview"
+                                    onclick="showAppDetails('tpegarbage')"
+                                >
+                                    查看詳情
+                                </button>
+                                <a
+                                    href="https://apps.apple.com/tw/app/id1501309455"
+                                    class="btn btn-download"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                        alt="Download on App Store"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 台北公車 App -->
+                    <div class="app-card" data-app="tpebus">
+                        <div class="app-icon">
+                            <img
+                                src="images/TPEBUS/icon/icon.png"
+                                alt="台北公車 App Icon"
+                            />
+                        </div>
+                        <div class="app-info">
+                            <h3>台北公車</h3>
+                            <p class="app-tagline">智慧台北公車通勤專家</p>
+                            <p class="app-description">
+                                全新升級的智慧台北公車動態查詢平台，完整涵蓋台北市、新北市所有公車路線。提供即時站牌查詢、GPS最近站牌定位、個人化瀏覽紀錄、智慧搜尋系統和小工具支援，打造一站式的雙北公車通勤體驗，讓您的每趟行程都更高效有序。
+                            </p>
+                            <div
+                                class="app-screenshots-preview"
+                                id="screenshots-tpebus"
+                            >
+                                <div class="screenshots-slider">
+                                    <!-- Screenshots will be loaded dynamically -->
+                                </div>
+                            </div>
+                            <div class="app-features">
+                                <span class="feature-tag">雙北覆蓋</span>
+                                <span class="feature-tag">即時查詢</span>
+                                <span class="feature-tag">GPS定位</span>
+                                <span class="feature-tag">小工具支援</span>
+                                <span class="feature-tag">收藏管理</span>
+                            </div>
+                            <div class="app-actions">
+                                <button
+                                    class="btn btn-preview"
+                                    onclick="showAppDetails('tpebus')"
+                                >
+                                    查看詳情
+                                </button>
+                                <a
+                                    href="https://apps.apple.com/tw/app/id1482596231"
+                                    class="btn btn-download"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                        alt="Download on App Store"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 倫敦公車 App -->
+                    <div class="app-card" data-app="londonbus">
+                        <div class="app-icon">
+                            <img
+                                src="images/LONDONBUS/icon/icon.png"
+                                alt="倫敦公車 App Icon"
+                            />
+                        </div>
+                        <div class="app-info">
+                            <h3>LONDONBUS</h3>
+                            <p class="app-tagline">倫敦巴士即時查詢專家</p>
+                            <p class="app-description">
+                                整合倫敦交通局TfL官方資料的即時巴士查詢App，讓倫敦出行變得簡單無壓力。提供即時到站時間查詢、互動式地圖模式、自動定位最近站牌、收藏分組管理和桌面小工具等功能，無論是日常通勤還是城市探索，都是您在倫敦的最佳交通助手。
+                            </p>
+                            <div
+                                class="app-screenshots-preview"
+                                id="screenshots-londonbus"
+                            >
+                                <div class="screenshots-slider">
+                                    <!-- Screenshots will be loaded dynamically -->
+                                </div>
+                            </div>
+                            <div class="app-features">
+                                <span class="feature-tag">TfL官方資料</span>
+                                <span class="feature-tag">即時查詢</span>
+                                <span class="feature-tag">互動地圖</span>
+                                <span class="feature-tag">收藏分組</span>
+                                <span class="feature-tag">桌面小工具</span>
+                            </div>
+                            <div class="app-actions">
+                                <button
+                                    class="btn btn-preview"
+                                    onclick="showAppDetails('londonbus')"
+                                >
+                                    查看詳情
+                                </button>
+                                <a
+                                    href="https://apps.apple.com/app/id1234567890"
+                                    class="btn btn-download"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                        alt="Download on App Store"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Details Modal -->
+        <div id="app-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAppDetails()">&times;</span>
+                <div class="modal-body" id="modal-body">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>關於 Barneysbro</h2>
+                    <p>專注於交通與生活服務的移動應用開發團隊</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            我們是專注於交通與生活服務的移動應用開發團隊。自成立以來，我們致力於為亞洲地區用戶提供高品質、實用的移動應用程式。
+                        </p>
+                        <p>
+                            我們的應用程式已服務香港、新加坡、倫敦、台灣等地區的用戶，累計下載次數超過
+                            56
+                            萬次。我們相信科技能讓生活更便利，這也是我們持續創新的動力。
+                        </p>
+                        <div class="about-features">
+                            <div class="feature">
+                                <h4>🚀 創新科技</h4>
+                                <p>運用最新技術提供最佳用戶體驗</p>
+                            </div>
+                            <div class="feature">
+                                <h4>🎯 用戶導向</h4>
+                                <p>深入了解用戶需求，設計實用功能</p>
+                            </div>
+                            <div class="feature">
+                                <h4>🌏 在地服務</h4>
+                                <p>針對不同地區客製化本地化服務</p>
+                            </div>
+                            <div class="feature">
+                                <h4>⚡ 即時資訊</h4>
+                                <p>整合官方資料提供準確即時資訊</p>
+                            </div>
+                            <div class="feature">
+                                <h4>🎨 簡約設計</h4>
+                                <p>注重介面美學與使用體驗的平衡</p>
+                            </div>
+                            <div class="feature">
+                                <h4>🔄 持續優化</h4>
+                                <p>定期更新功能回應用戶需求反饋</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>聯絡我們</h2>
+                <p>有任何問題或建議，歡迎與我們聯繫</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>電子郵件</h4>
+                        <a href="mailto:barneysbro.app@gmail.com"
+                            >barneysbro.app@gmail.com</a
+                        >
+                    </div>
+                    <div class="contact-item">
+                        <h4>社群媒體</h4>
+                        <div class="social-links">
+                            <a
+                                href="https://www.facebook.com/hkbusbus/"
+                                target="_blank"
+                                >Facebook</a
+                            >
+                            <a
+                                href="https://www.instagram.com/hkbusbus/"
+                                target="_blank"
+                                >Instagram</a
+                            >
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <h4>App Store</h4>
+                        <a
+                            href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
+                            target="_blank"
+                            >查看所有應用程式</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <img
+                            src="images/HKBUS/icon/icon.png"
+                            alt="Barneysbro"
+                        />
+                        <p>Barneysbro - Your trusted app developer</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>應用程式</h4>
+                            <a href="https://apps.apple.com/hk/app/id1480194097"
+                                >HKBUS</a
+                            >
+                            <a
+                                href="https://apps.apple.com/tw/app/sgbus-singapore-bus/id6744122884"
+                                >SGBUS</a
+                            >
+                            <a
+                                href="https://apps.apple.com/tw/app/londonbus-london-bus/id6744515697"
+                                >LONDONBUS</a
+                            >
+                            <a href="https://apps.apple.com/tw/app/id1501309455"
+                                >台北倒垃圾</a
+                            >
+                            <a href="https://apps.apple.com/tw/app/id1482596231"
+                                >台北公車</a
+                            >
+                        </div>
+                        <div class="link-group">
+                            <h4>支援</h4>
+                            <a href="privacy.html">隱私政策</a>
+                            <a href="terms.html">服務條款</a>
+                            <a href="mailto:barneysbro.app@gmail.com"
+                                >客服支援</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Barneysbro. All rights reserved.</p>
+                </div>
             </div>
         </footer>
+
+        <script src="script.js"></script>
     </body>
 </html>

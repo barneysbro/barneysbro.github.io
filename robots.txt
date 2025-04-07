@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://barneysbro.github.io/sitemap.xml
+
+# Disallow old files (no longer exist)
+# These files have been removed in the new version
+
+# Allow important pages
+Allow: /index.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /lost.html
+Allow: /en/
+Allow: /images/
+Allow: /images/HKBUS/
+Allow: /images/SGBUS/
+Allow: /images/TPEGARBAGE/
+Allow: /images/TPEBUS/
