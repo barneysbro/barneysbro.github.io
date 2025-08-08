@@ -23,7 +23,71 @@ document.addEventListener('DOMContentLoaded', function () {
             navToggle.classList.remove('active');
         }
     });
+
+    // Initialize counter animation
+    initCounterAnimation();
 });
+
+// Counter Animation Function
+function initCounterAnimation() {
+    const counters = document.querySelectorAll('.counter');
+    const options = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px',
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                animateCounter(counter);
+                observer.unobserve(counter);
+            }
+        });
+    }, options);
+
+    counters.forEach((counter) => {
+        observer.observe(counter);
+    });
+}
+
+function animateCounter(counter) {
+    const target = parseInt(counter.getAttribute('data-target'));
+    const suffix = counter.getAttribute('data-suffix') || '';
+    const duration = 2500; // 2.5 seconds for smoother animation
+    const startTime = performance.now();
+
+    // Add pulse animation class
+    counter.classList.add('animating');
+    setTimeout(() => {
+        counter.classList.remove('animating');
+    }, 300);
+
+    function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+    }
+
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Apply easing function
+        const easedProgress = easeOutQuart(progress);
+        const current = Math.floor(easedProgress * target);
+
+        // Format the number
+        counter.textContent = current + suffix;
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            // Ensure final value is exact
+            counter.textContent = target + suffix;
+        }
+    }
+
+    requestAnimationFrame(updateCounter);
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -535,3 +599,119 @@ function loadAppCardScreenshots() {
         }
     });
 }
+
+// Multi-language Support
+class LanguageManager {
+    constructor() {
+        this.currentLang = 'zh';
+        this.init();
+    }
+
+    init() {
+        // Detect browser language
+        const browserLang = navigator.language || navigator.userLanguage;
+        const isChineseLang = browserLang.startsWith('zh');
+
+        // Check localStorage for saved preference
+        const savedLang = localStorage.getItem('preferred-language');
+
+        if (savedLang) {
+            this.currentLang = savedLang;
+        } else {
+            this.currentLang = isChineseLang ? 'zh' : 'en';
+        }
+
+        // Set initial language
+        this.setLanguage(this.currentLang);
+
+        // Setup language toggle button
+        this.setupLanguageToggle();
+    }
+
+    setupLanguageToggle() {
+        const langToggle = document.getElementById('lang-toggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                this.toggleLanguage();
+            });
+        }
+    }
+
+    toggleLanguage() {
+        this.currentLang = this.currentLang === 'zh' ? 'en' : 'zh';
+        this.setLanguage(this.currentLang);
+        localStorage.setItem('preferred-language', this.currentLang);
+    }
+
+    setLanguage(lang) {
+        this.currentLang = lang;
+        const html = document.documentElement;
+
+        // Update html lang attribute
+        html.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+        html.setAttribute('data-lang', lang);
+
+        // Update all elements with language attributes
+        const elements = document.querySelectorAll('[data-zh][data-en]');
+        elements.forEach((element) => {
+            const text = element.getAttribute(`data-${lang}`);
+            if (text) {
+                if (element.tagName === 'META') {
+                    element.setAttribute('content', text);
+                } else if (element.tagName === 'TITLE') {
+                    element.textContent = text;
+                } else if (
+                    element.tagName === 'BUTTON' ||
+                    element.tagName === 'A'
+                ) {
+                    element.textContent = text;
+                } else {
+                    element.textContent = text;
+                }
+            }
+        });
+
+        // Update language toggle button
+        const langToggle = document.getElementById('lang-toggle');
+        if (langToggle) {
+            const langText = langToggle.querySelector('.lang-text');
+            if (langText) {
+                langText.textContent = lang === 'zh' ? 'EN' : '中文';
+            }
+        }
+
+        // Update meta tags
+        const metaTags = document.querySelectorAll('meta[data-zh][data-en]');
+        metaTags.forEach((meta) => {
+            const content = meta.getAttribute(`data-${lang}`);
+            if (content) {
+                meta.setAttribute('content', content);
+            }
+        });
+
+        // Update title
+        const title = document.querySelector('title[data-zh][data-en]');
+        if (title) {
+            const titleText = title.getAttribute(`data-${lang}`);
+            if (titleText) {
+                title.textContent = titleText;
+            }
+        }
+
+        // Update no-screenshots message if it exists
+        const noScreenshots = document.querySelectorAll(
+            '.no-screenshots-preview'
+        );
+        noScreenshots.forEach((element) => {
+            element.textContent =
+                lang === 'zh'
+                    ? '截圖即將更新...'
+                    : 'Screenshots coming soon...';
+        });
+    }
+}
+
+// Initialize language manager when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    new LanguageManager();
+});

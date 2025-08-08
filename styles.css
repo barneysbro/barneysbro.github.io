@@ -59,6 +59,32 @@ body {
 .nav-menu {
     display: flex;
     gap: 2rem;
+    align-items: center;
+}
+
+.language-switcher {
+    margin-left: 1rem;
+}
+
+.lang-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.lang-btn:hover {
+    background: #e2e8f0;
+    color: #2563eb;
+}
+
+.lang-text {
+    display: block;
 }
 
 .nav-link {
@@ -215,6 +241,31 @@ body {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.stat h3.counter {
+    color: inherit;
+}
+
+.stat h3.counter.animating {
+    animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.stat:hover h3 {
+    transform: scale(1.05);
 }
 
 .stat p {
@@ -893,6 +944,10 @@ body {
 
     .nav-menu.active {
         left: 0;
+    }
+
+    .language-switcher {
+        margin: 1rem 0 0 0;
     }
 
     .nav-toggle {
