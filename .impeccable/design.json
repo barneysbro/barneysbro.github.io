@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-04T06:01:10Z",
+  "title": "Design System: Barneysbro City Route Atlas",
+  "extensions": {
+    "colorMeta": {
+      "signal-yellow": {
+        "role": "primary",
+        "displayName": "Signal Yellow",
+        "canonical": "#ffd21c",
+        "tonalRamp": ["#382d00", "#665100", "#947600", "#c29c00", "#ffd21c", "#ffdf61", "#ffeca5", "#fff8e5"]
+      },
+      "municipal-blue": {
+        "role": "primary",
+        "displayName": "Municipal Blue",
+        "canonical": "#1436b8",
+        "tonalRamp": ["#07113b", "#0b1d63", "#0f298c", "#1436b8", "#3f5dcc", "#7186de", "#a9b5ed", "#e8ebfb"]
+      },
+      "route-mint": {
+        "role": "secondary",
+        "displayName": "Route Mint",
+        "canonical": "#8fe3bd",
+        "tonalRamp": ["#0e3324", "#18563d", "#277c59", "#47a87c", "#8fe3bd", "#b0ecd1", "#d1f5e5", "#effcf6"]
+      },
+      "route-orange": {
+        "role": "secondary",
+        "displayName": "Route Orange",
+        "canonical": "#ff9869",
+        "tonalRamp": ["#451b08", "#762f12", "#a94b25", "#d96c41", "#ff9869", "#ffb691", "#ffd3bb", "#fff0e8"]
+      },
+      "route-red": {
+        "role": "secondary",
+        "displayName": "Route Red",
+        "canonical": "#ef4661",
+        "tonalRamp": ["#420b16", "#701323", "#9e2135", "#c8324b", "#ef4661", "#f6788a", "#fbaab6", "#fee7eb"]
+      },
+      "route-blue": {
+        "role": "secondary",
+        "displayName": "Route Blue",
+        "canonical": "#4566dd",
+        "tonalRamp": ["#101a4b", "#1b2c7b", "#2b43ac", "#4566dd", "#7089e7", "#9baaf0", "#c7d0f8", "#eef1fd"]
+      },
+      "transit-ink": {
+        "role": "neutral",
+        "displayName": "Transit Ink",
+        "canonical": "#101722",
+        "tonalRamp": ["#080c12", "#101722", "#273343", "#465466", "#69778a", "#96a1af", "#c8ced5", "#f1f3f5"]
+      },
+      "cool-paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#f3f6f4",
+        "tonalRamp": ["#1c2420", "#34413b", "#52635b", "#74867d", "#9ca9a2", "#c4ccc8", "#e1e6e3", "#f3f6f4"]
+      }
+    },
+    "typographyMeta": {
+      "display": {"displayName": "Wayfinding Display", "purpose": "Large direct statements and product titles."},
+      "body": {"displayName": "Civic Body", "purpose": "Readable bilingual product explanation."},
+      "label": {"displayName": "Station Label", "purpose": "Short regions, locations, and route codes."}
+    },
+    "shadows": [
+      {"name": "product-plate", "value": "0 28px 54px rgba(16, 23, 34, .22)", "purpose": "Physical depth for real App screenshots only."},
+      {"name": "app-icon", "value": "0 12px 28px rgba(16, 23, 34, .16)", "purpose": "Small lift for native App icons."}
+    ],
+    "motion": [
+      {"name": "route-arrival", "value": "600ms cubic-bezier(.16, 1, .3, 1)", "purpose": "One-time product-copy arrival as a route stop enters view."},
+      {"name": "control-feedback", "value": "150ms ease", "purpose": "Immediate action inversion and two-pixel lift."}
+    ],
+    "breakpoints": [
+      {"name": "compact", "value": "420px"},
+      {"name": "mobile", "value": "800px"},
+      {"name": "route-rail", "value": "1100px"}
+    ]
+  },
+  "components": [
+    {
+      "name": "Dark Route Action",
+      "kind": "button",
+      "refersTo": "action-dark",
+      "description": "Primary action on Signal Yellow and other light fields.",
+      "html": "<a class=\"ds-action-dark\" href=\"#\">FOLLOW THE APP ROUTE</a>",
+      "css": ".ds-action-dark { display:inline-flex; min-height:50px; align-items:center; justify-content:center; padding:12px 18px; border:2px solid #101722; border-radius:0; background:#101722; color:#fff; font:700 14px 'Noto Sans TC',sans-serif; text-decoration:none; transition:background 150ms ease,transform 150ms ease; } .ds-action-dark:hover { background:#1436b8; transform:translateY(-2px); } .ds-action-dark:focus-visible { outline:3px solid #0b57ff; outline-offset:4px; }"
+    },
+    {
+      "name": "Outlined Route Action",
+      "kind": "button",
+      "refersTo": "action",
+      "description": "App Store action inside a destination field.",
+      "html": "<a class=\"ds-action-outline\" href=\"#\">VIEW ON THE APP STORE ↗</a>",
+      "css": ".ds-action-outline { display:inline-flex; min-height:50px; align-items:center; padding:12px 18px; border:2px solid #101722; border-radius:0; background:transparent; color:#101722; font:700 14px 'Noto Sans TC',sans-serif; text-decoration:none; transition:background 150ms ease,color 150ms ease,transform 150ms ease; } .ds-action-outline:hover { background:#101722; color:#fff; transform:translateY(-2px); } .ds-action-outline:focus-visible { outline:3px solid #0b57ff; outline-offset:4px; }"
+    },
+    {
+      "name": "Studio Navigation",
+      "kind": "nav",
+      "description": "Fixed cool-paper bar that becomes Signal Yellow over the hero.",
+      "html": "<nav class=\"ds-nav\"><strong>Barneysbro</strong><a href=\"#\">Apps</a><a href=\"#\">Studio</a><button>EN</button></nav>",
+      "css": ".ds-nav { display:flex; min-height:74px; align-items:center; gap:28px; padding:0 34px; border-bottom:1px solid rgba(16,23,34,.18); background:#ffd21c; color:#101722; font:700 13px 'Noto Sans TC',sans-serif; } .ds-nav strong { margin-right:auto; font:760 16px 'Anybody','Noto Sans TC',sans-serif; } .ds-nav a { color:inherit; text-decoration:none; } .ds-nav button { min-width:48px; min-height:44px; border:1px solid #101722; border-radius:0; background:transparent; font:inherit; } .ds-nav a:focus-visible,.ds-nav button:focus-visible { outline:3px solid #0b57ff; outline-offset:4px; }"
+    },
+    {
+      "name": "Route Station",
+      "kind": "custom",
+      "description": "Current-location marker for the desktop portfolio route.",
+      "html": "<a class=\"ds-station\" aria-current=\"location\" href=\"#\">HK</a>",
+      "css": ".ds-station { display:grid; width:36px; height:36px; place-items:center; border:2px solid #101722; border-radius:50%; background:#ffd21c; color:#101722; font:800 10px 'Anybody',sans-serif; text-decoration:none; transition:transform 180ms ease; } .ds-station:hover { transform:scale(1.12); } .ds-station:focus-visible { outline:3px solid #0b57ff; outline-offset:4px; }"
+    },
+    {
+      "name": "Product Proof Plate",
+      "kind": "custom",
+      "description": "A real portrait App screenshot with a hard keyline and ambient depth.",
+      "html": "<figure class=\"ds-proof\"><div aria-label=\"App screenshot placeholder\"></div><figcaption>LIVE ARRIVALS</figcaption></figure>",
+      "css": ".ds-proof { width:220px; margin:0; color:#101722; text-align:center; } .ds-proof div { aspect-ratio:800/1739; border:1px solid #101722; background:#f3f6f4; box-shadow:0 28px 54px rgba(16,23,34,.22); } .ds-proof figcaption { margin-top:12px; font:700 11px 'Anybody',sans-serif; letter-spacing:.04em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The City Route Atlas",
+    "overview": "Barneysbro behaves like a piece of civic wayfinding rather than a generic software landing page. Saturated route fields divide the portfolio into real destinations, hard rules establish direction, and product screenshots are treated as the evidence at each stop.",
+    "keyCharacteristics": [
+      "Full-width municipal color fields, not cards on a neutral canvas.",
+      "Oversized compressed wayfinding headlines.",
+      "Real App screenshots at product scale.",
+      "Square actions, hard rules, circular route stations.",
+      "Flat by default; depth belongs to physical product plates only."
+    ],
+    "rules": [
+      {"name": "The Whole Field Rule", "body": "Route colors own entire sections. Do not reduce them to tiny accent chips on white cards.", "section": "colors"},
+      {"name": "The Contrast Pair Rule", "body": "Transit Ink sits on yellow, mint, orange, and red; white sits on deep blue and ink.", "section": "colors"},
+      {"name": "The Sign Before Caption Rule", "body": "Headings carry the message directly. Do not add decorative eyebrow copy above them.", "section": "typography"},
+      {"name": "The Proof Casts the Shadow Rule", "body": "Navigation, text containers, and content fields stay flat. Only product evidence receives elevation.", "section": "elevation"}
+    ],
+    "dos": [
+      "Do give each App an entire route-color field and real screenshot proof.",
+      "Do preserve the one-pixel civic rule language and square controls.",
+      "Do translate persistent desktop structures into local horizontal rails on mobile.",
+      "Do keep content visible when JavaScript or motion is unavailable."
+    ],
+    "donts": [
+      "Don't wrap the portfolio in same-size white feature cards.",
+      "Don't use gradients, glass panels, emoji controls, or generic icon tiles as substitutes for product evidence.",
+      "Don't add unverified ratings, download totals, versions, or feature claims.",
+      "Don't animate every section identically; motion should explain progress through the route."
+    ]
+  }
+}

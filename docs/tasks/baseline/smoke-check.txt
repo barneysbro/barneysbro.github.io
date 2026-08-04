@@ -1,0 +1,6 @@
+Checked 8 routes and 5 HTML files.
+ERROR: broken local reference: index.html -> images/Icon-App-60x603x.png
+ERROR: broken local reference: index.html -> images/hero-app-preview.jpg
+ERROR: broken local reference: privacy.html -> images/Icon-App-60x603x.png
+ERROR: broken local reference: terms.html -> images/Icon-App-60x603x.png
+exit_code=1

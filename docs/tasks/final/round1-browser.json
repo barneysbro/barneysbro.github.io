@@ -1,0 +1,177 @@
+{
+  "results": {
+    "desktop": {
+      "title": "Barneysbro — 城市交通與生活 App",
+      "width": 1440,
+      "bodyWidth": 1440,
+      "docWidth": 1440,
+      "images": [
+        {
+          "src": "images/TPEGARBAGE/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 1242
+        },
+        {
+          "src": "images/TPEGARBAGE/screenshots/3.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEGARBAGE/screenshots/4.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEBUS/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEBUS/screenshots/2.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEBUS/screenshots/5.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/SGBUS/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/SGBUS/screenshots/2.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/SGBUS/screenshots/5.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/LONDONBUS/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/LONDONBUS/screenshots/2.png",
+          "complete": false,
+          "naturalWidth": 1320
+        },
+        {
+          "src": "images/LONDONBUS/screenshots/5.png",
+          "complete": false,
+          "naturalWidth": 0
+        }
+      ],
+      "links": 28,
+      "buttons": 2,
+      "h1": "城市每天都在移動。\n下一步，應該很清楚。",
+      "products": 5
+    },
+    "mobile": {
+      "title": "Barneysbro — 城市交通與生活 App",
+      "width": 375,
+      "bodyWidth": 375,
+      "docWidth": 375,
+      "images": [
+        {
+          "src": "images/TPEGARBAGE/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 1242
+        },
+        {
+          "src": "images/TPEGARBAGE/screenshots/3.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEGARBAGE/screenshots/4.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEBUS/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEBUS/screenshots/2.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/TPEBUS/screenshots/5.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/SGBUS/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/SGBUS/screenshots/2.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/SGBUS/screenshots/5.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/LONDONBUS/screenshots/1.png",
+          "complete": false,
+          "naturalWidth": 0
+        },
+        {
+          "src": "images/LONDONBUS/screenshots/2.png",
+          "complete": false,
+          "naturalWidth": 1320
+        },
+        {
+          "src": "images/LONDONBUS/screenshots/5.png",
+          "complete": false,
+          "naturalWidth": 0
+        }
+      ],
+      "links": 28,
+      "buttons": 2,
+      "h1": "城市每天都在移動。\n下一步，應該很清楚。",
+      "products": 5
+    },
+    "mobileMenu": {
+      "expanded": "true",
+      "open": true,
+      "afterEscape": "false"
+    },
+    "language": {
+      "lang": "zh-Hant",
+      "title": "Barneysbro — 城市交通與生活 App",
+      "h1": "城市每天都在移動。\n下一步，應該很清楚。"
+    },
+    "reducedMotion": {
+      "motionReady": false,
+      "hidden": false
+    }
+  },
+  "failures": [
+    "FAILED https://geoip.maxmind.com/geoip/v2.1/country/me net::ERR_FAILED"
+  ],
+  "consoleErrors": [
+    "Access to fetch at 'https://geoip.maxmind.com/geoip/v2.1/country/me' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "Failed to load resource: net::ERR_FAILED",
+    "Access to fetch at 'https://geoip.maxmind.com/geoip/v2.1/country/me' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "Failed to load resource: net::ERR_FAILED",
+    "Access to fetch at 'https://geoip.maxmind.com/geoip/v2.1/country/me' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "Failed to load resource: net::ERR_FAILED",
+    "Access to fetch at 'https://geoip.maxmind.com/geoip/v2.1/country/me' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "Failed to load resource: net::ERR_FAILED",
+    "Access to fetch at 'https://geoip.maxmind.com/geoip/v2.1/country/me' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "Failed to load resource: net::ERR_FAILED"
+  ]
+}

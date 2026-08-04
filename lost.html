@@ -1,421 +1,135 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>遺失物協助專區 - 香港巴士公司聯絡資訊</title>
-        <meta
-            name="description"
-            content="香港巴士遺失物品協助專區，提供九巴、城巴、嶼巴等巴士公司的失物招領聯絡方式和服務時間。"
-        />
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>遺失物協助專區 — 香港巴士公司聯絡資訊</title>
+    <meta name="description" content="香港巴士遺失物品協助專區，提供九巴、城巴、嶼巴等巴士公司的失物招領聯絡方式和服務時間。">
+    <link rel="icon" href="images/HKBUS/icon/icon.png" type="image/png">
+    <link rel="stylesheet" href="support.css">
+</head>
+<body>
+    <nav class="support-nav" aria-label="網站導覽">
+        <a class="support-brand" href="index.html">Barneysbro</a>
+        <a href="index.html">回到首頁 →</a>
+    </nav>
 
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                    Roboto, 'Helvetica Neue', Arial, sans-serif;
-                background: linear-gradient(135deg, #fbc621 0%, #f5b800 100%);
-                color: #252627;
-                min-height: 100vh;
-                padding: 0;
-                line-height: 1.6;
-            }
-
-            .container {
-                max-width: 480px;
-                margin: 0 auto;
-                padding: 20px 16px;
-                min-height: 100vh;
-            }
-
-            .header {
-                text-align: center;
-                margin-bottom: 32px;
-                padding: 24px 16px;
-                background: rgba(255, 255, 255, 0.98);
-                border-radius: 16px;
-                box-shadow: 0 4px 20px rgba(37, 38, 39, 0.15);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(251, 198, 33, 0.3);
-            }
-
-            .header h1 {
-                font-size: clamp(24px, 6vw, 32px);
-                font-weight: 700;
-                color: #252627;
-                margin-bottom: 8px;
-                line-height: 1.2;
-            }
-
-            .header p {
-                font-size: 16px;
-                color: #666;
-                opacity: 0.9;
-            }
-
-            .company-card {
-                background: rgba(255, 255, 255, 0.98);
-                border-radius: 16px;
-                padding: 24px;
-                margin-bottom: 20px;
-                box-shadow: 0 4px 20px rgba(37, 38, 39, 0.12);
-                border: 1px solid rgba(251, 198, 33, 0.2);
-                backdrop-filter: blur(10px);
-                transition: all 0.3s ease;
-            }
-
-            .company-card:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 30px rgba(37, 38, 39, 0.18);
-                border-color: #fbc621;
-            }
-
-            .company-card:last-child {
-                margin-bottom: 32px;
-            }
-
-            .company-name {
-                font-size: 22px;
-                font-weight: 600;
-                color: #252627;
-                margin-bottom: 16px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-
-            .company-name::before {
-                content: '🚌';
-                font-size: 20px;
-            }
-
-            .contact-item {
-                margin-bottom: 12px;
-                padding: 12px 16px;
-                background: rgba(251, 198, 33, 0.08);
-                border-radius: 12px;
-                border-left: 4px solid #fbc621;
-            }
-
-            .contact-item:last-child {
-                margin-bottom: 0;
-            }
-
-            .contact-label {
-                font-size: 14px;
-                font-weight: 500;
-                color: #666;
-                margin-bottom: 4px;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-            }
-
-            .contact-value {
-                font-size: 16px;
-                color: #252627;
-                line-height: 1.5;
-            }
-
-            .contact-value a {
-                color: #252627;
-                text-decoration: none;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                word-break: break-all;
-            }
-
-            .contact-value a:hover {
-                color: #fbc621;
-                text-decoration: underline;
-            }
-
-            .phone-link {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                padding: 8px 16px;
-                background: #252627;
-                color: white !important;
-                border-radius: 25px;
-                text-decoration: none !important;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                margin-top: 4px;
-            }
-
-            .phone-link:hover {
-                background: #fbc621;
-                color: #252627 !important;
-                transform: scale(1.02);
-            }
-
-            .phone-link::before {
-                content: '📞';
-                font-size: 14px;
-            }
-
-            .service-hours {
-                font-size: 14px;
-                color: #666;
-                font-style: italic;
-                margin-top: 8px;
-                padding: 8px 12px;
-                background: rgba(251, 198, 33, 0.1);
-                border-radius: 8px;
-                border: 1px solid rgba(251, 198, 33, 0.2);
-            }
-
-            .email-link {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                padding: 8px 16px;
-                background: #252627;
-                color: white !important;
-                border-radius: 25px;
-                text-decoration: none !important;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                margin-top: 4px;
-                font-size: 14px;
-            }
-
-            .email-link:hover {
-                background: #fbc621;
-                color: #252627 !important;
-                transform: scale(1.02);
-            }
-
-            .email-link::before {
-                content: '✉️';
-                font-size: 14px;
-            }
-
-            .website-link {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                padding: 8px 16px;
-                background: #252627;
-                color: white !important;
-                border-radius: 25px;
-                text-decoration: none !important;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                margin-top: 4px;
-                font-size: 14px;
-            }
-
-            .website-link:hover {
-                background: #fbc621;
-                color: #252627 !important;
-                transform: scale(1.02);
-            }
-
-            .website-link::before {
-                content: '🌐';
-                font-size: 14px;
-            }
-
-            .footer {
-                text-align: center;
-                padding: 24px;
-                background: rgba(255, 255, 255, 0.95);
-                border-radius: 16px;
-                margin-top: 20px;
-                border: 1px solid rgba(251, 198, 33, 0.3);
-            }
-
-            .footer p {
-                font-size: 14px;
-                color: #666;
-                line-height: 1.5;
-            }
-
-            /* 手機優化 */
-            @media (max-width: 480px) {
-                .container {
-                    padding: 16px 12px;
-                }
-
-                .header {
-                    padding: 20px 16px;
-                    margin-bottom: 24px;
-                }
-
-                .company-card {
-                    padding: 20px;
-                    margin-bottom: 16px;
-                }
-
-                .contact-item {
-                    padding: 10px 14px;
-                }
-
-                .phone-link,
-                .email-link,
-                .website-link {
-                    padding: 10px 14px;
-                    font-size: 14px;
-                }
-            }
-
-            /* 深色主題支援 */
-            @media (prefers-color-scheme: dark) {
-                body {
-                    background: linear-gradient(
-                        135deg,
-                        #252627 0%,
-                        #1a1b1c 100%
-                    );
-                    color: #ffffff;
-                }
-
-                .header,
-                .company-card {
-                    background: rgba(251, 198, 33, 0.05);
-                    color: #ffffff;
-                    border: 1px solid rgba(251, 198, 33, 0.2);
-                }
-
-                .header h1,
-                .company-name,
-                .contact-value {
-                    color: #ffffff;
-                }
-
-                .header p,
-                .contact-label {
-                    color: #cccccc;
-                }
-
-                .contact-item {
-                    background: rgba(251, 198, 33, 0.1);
-                    border-left-color: #fbc621;
-                }
-
-                .service-hours {
-                    color: #cccccc;
-                    background: rgba(251, 198, 33, 0.08);
-                    border-color: rgba(251, 198, 33, 0.3);
-                }
-
-                .footer {
-                    background: rgba(251, 198, 33, 0.05);
-                    border: 1px solid rgba(251, 198, 33, 0.2);
-                }
-
-                .footer p {
-                    color: #cccccc;
-                }
-
-                .phone-link,
-                .email-link,
-                .website-link {
-                    background: #fbc621;
-                    color: #252627 !important;
-                }
-
-                .phone-link:hover,
-                .email-link:hover,
-                .website-link:hover {
-                    background: #ffffff;
-                    color: #252627 !important;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h1>遺失物協助專區</h1>
-                <p>香港巴士公司失物招領聯絡資訊</p>
+    <main>
+        <header class="lost-hero">
+            <h1>在巴士上<br>遺失物品？</h1>
+            <div>
+                <p>直接聯絡營辦商的失物組，是最快的處理方式。</p>
+                <p class="lost-hero__note">致電前請準備路線號碼、上下車地點、乘車日期與時間。</p>
             </div>
+        </header>
 
-            <div class="company-card">
-                <div class="company-name">九巴 (KMB)</div>
-
-                <div class="contact-item">
-                    <div class="contact-label">服務電話</div>
-                    <div class="contact-value">
-                        <a href="tel:37081333" class="phone-link"
-                            >3708-1333 (失物組)</a
-                        >
+        <section class="operators" aria-label="巴士公司聯絡方式">
+            <article class="operator">
+                <div class="operator__name">
+                    <span>KMB</span>
+                    <h2>九巴</h2>
+                </div>
+                <dl class="contact-list">
+                    <div>
+                        <dt>失物組電話</dt>
+                        <dd><a class="contact-action" href="tel:37081333">3708-1333</a></dd>
                     </div>
-                </div>
-
-                <div class="service-hours">
-                    ⏰ 服務時間：星期一至五上午9:00至下午6:30，公眾假期除外
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">城巴 (Citybus)</div>
-
-                <div class="contact-item">
-                    <div class="contact-label">服務電話</div>
-                    <div class="contact-value">
-                        <a href="tel:21368888" class="phone-link">2136-8888</a>
+                    <div>
+                        <dt>服務時間</dt>
+                        <dd>星期一至五<br>上午 9:00–下午 6:30<br>公眾假期除外</dd>
                     </div>
-                </div>
+                </dl>
+            </article>
 
-                <div class="contact-item">
-                    <div class="contact-label">線上報失</div>
-                    <div class="contact-value">
-                        <a
-                            href="https://www.citybus.com.hk/onlineform/tc/report-lost"
-                            target="_blank"
-                            class="website-link"
-                        >
-                            報失物品網站
-                        </a>
+            <article class="operator">
+                <div class="operator__name">
+                    <span>CTB</span>
+                    <h2>城巴</h2>
+                </div>
+                <dl class="contact-list">
+                    <div>
+                        <dt>服務電話</dt>
+                        <dd><a class="contact-action" href="tel:21368888">2136-8888</a></dd>
                     </div>
-                </div>
-
-                <div class="service-hours">
-                    ⏰
-                    服務時間：每日上午8:00至晚上8:00，非辦公時間設有錄音資訊服務
-                </div>
-            </div>
-
-            <div class="company-card">
-                <div class="company-name">嶼巴 (NLB)</div>
-
-                <div class="contact-item">
-                    <div class="contact-label">服務電話</div>
-                    <div class="contact-value">
-                        <a href="tel:29849848" class="phone-link">2984-9848</a>
+                    <div>
+                        <dt>線上報失</dt>
+                        <dd><a class="contact-action" href="https://www.citybus.com.hk/onlineform/tc/report-lost" target="_blank" rel="noopener">報失物品網站 ↗</a></dd>
                     </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">電郵聯絡</div>
-                    <div class="contact-value">
-                        <a
-                            href="mailto:info@nlb.com.hk?subject=遺失物品&body=失物資料：%0A所乘巴士路線：%0A目的地：%0A乘車時間：%0A聯絡方法："
-                            class="email-link"
-                        >
-                            發送電郵
-                        </a>
+                    <div>
+                        <dt>服務時間</dt>
+                        <dd>每日上午 8:00–晚上 8:00<br>非辦公時間設有錄音資訊服務</dd>
                     </div>
-                </div>
+                </dl>
+            </article>
 
-                <div class="service-hours">
-                    ⏰ 服務時間：星期一至日上午9:00至下午6:00
+            <article class="operator">
+                <div class="operator__name">
+                    <span>NLB</span>
+                    <h2>嶼巴</h2>
                 </div>
-            </div>
+                <dl class="contact-list">
+                    <div>
+                        <dt>服務電話</dt>
+                        <dd><a class="contact-action" href="tel:29849848">2984-9848</a></dd>
+                    </div>
+                    <div>
+                        <dt>電郵聯絡</dt>
+                        <dd><a class="contact-action" href="mailto:info@nlb.com.hk?subject=遺失物品&amp;body=失物資料：%0A所乘巴士路線：%0A目的地：%0A乘車時間：%0A聯絡方法：">發送電郵 →</a></dd>
+                    </div>
+                    <div>
+                        <dt>服務時間</dt>
+                        <dd>星期一至日<br>上午 9:00–下午 6:00</dd>
+                    </div>
+                </dl>
+            </article>
 
-            <div class="footer">
-                <p>
-                    💡
-                    提示：致電前請準備好您的乘車資料，包括路線號碼、上下車地點、乘車時間等，以便工作人員協助查找。
-                </p>
-            </div>
-        </div>
-    </body>
+            <article class="operator">
+                <div class="operator__name">
+                    <span>GMB</span>
+                    <h2>綠色專線小巴</h2>
+                </div>
+                <dl class="contact-list">
+                    <div>
+                        <dt>營辦商資料</dt>
+                        <dd><a class="contact-action" href="https://www.hkemobility.gov.hk/tc/public-transport/gmb" target="_blank" rel="noopener">查找路線資料 ↗</a></dd>
+                    </div>
+                    <div>
+                        <dt>未能尋回</dt>
+                        <dd><a class="contact-action" href="https://www.police.gov.hk/ppp_tc/13_faqs/faq_erc.html" target="_blank" rel="noopener">警方報失資訊 ↗</a></dd>
+                    </div>
+                    <div>
+                        <dt>處理方式</dt>
+                        <dd>各路線由不同營辦商營運。請先按路線查找營辦商並直接聯絡；如未能尋回，可向警方報失。</dd>
+                    </div>
+                </dl>
+            </article>
+
+            <article class="operator">
+                <div class="operator__name">
+                    <span>MTR</span>
+                    <h2>港鐵巴士</h2>
+                </div>
+                <dl class="contact-list">
+                    <div>
+                        <dt>失物熱線</dt>
+                        <dd><a class="contact-action" href="tel:28610020">2861-0020</a></dd>
+                    </div>
+                    <div>
+                        <dt>網上登記</dt>
+                        <dd><a class="contact-action" href="https://www.mtr.com.hk/ch/customer/services/lost.html" target="_blank" rel="noopener">港鐵失物登記 ↗</a></dd>
+                    </div>
+                    <div>
+                        <dt>範圍與時間</dt>
+                        <dd>適用於最近六星期內在重鐵、輕鐵及港鐵巴士遺失的物品。<br>每日上午 8:00–晚上 8:00</dd>
+                    </div>
+                </dl>
+            </article>
+        </section>
+
+        <footer class="support-footer">
+            <strong>聯絡時請提供</strong>
+            <p>巴士路線、行車方向、上下車地點、乘車日期與大約時間。</p>
+        </footer>
+    </main>
+</body>
 </html>

@@ -1,952 +1,239 @@
-<!DOCTYPE html>
-<html lang="zh-TW" data-lang="zh">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title
-            data-zh="Barneysbro Apps - 交通與生活應用程式開發者"
-            data-en="Barneysbro Apps - Transportation & Lifestyle App Developer"
-        >
-            Barneysbro Apps - 交通與生活應用程式開發者
-        </title>
-        <meta
-            name="description"
-            content="Barneysbro 開發的優質移動應用程式：HKBUS 香港巴士、SGBUS 新加坡巴士、台北倒垃圾、台北公車。提供即時交通資訊和生活便利服務。"
-            data-zh="Barneysbro 開發的優質移動應用程式：HKBUS 香港巴士、SGBUS 新加坡巴士、台北倒垃圾、台北公車。提供即時交通資訊和生活便利服務。"
-            data-en="Quality mobile applications by Barneysbro: HKBUS Hong Kong Bus, SGBUS Singapore Bus, TPEGARBAGE, TPEBUS. Providing real-time transportation and lifestyle services."
-        />
-        <meta
-            name="keywords"
-            content="HKBUS, SGBUS, 台北倒垃圾, 台北公車, 巴士app, 交通app, 垃圾車時間, Barneysbro"
-        />
-        <meta name="author" content="Barney Chen" />
+<!doctype html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Barneysbro — 城市交通與生活 App</title>
+    <meta name="description" content="Barneysbro 打造 HKBUS、台北倒垃圾、TPEBUS、SGBUS 與 LONDONBUS，把城市開放資料整理成每天都用得上的 iOS App。">
+    <meta name="author" content="Barney Chen">
+    <meta name="theme-color" content="#ffd21c">
+    <link rel="canonical" href="https://barneysbro.github.io/">
+    <link rel="icon" href="images/HKBUS/icon/icon.png" type="image/png">
+    <link rel="preload" href="fonts/anybody-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/noto-sans-tc.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="images/web/HKBUS/3.webp" as="image" type="image/webp">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Barneysbro — Apps for moving cities">
+    <meta property="og:description" content="Five focused iOS apps for bus arrivals and everyday city routines.">
+    <meta property="og:url" content="https://barneysbro.github.io/">
+    <meta property="og:image" content="https://barneysbro.github.io/images/COVER.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://barneysbro.github.io/images/COVER.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Barneysbro",
+      "url": "https://barneysbro.github.io/",
+      "logo": "https://barneysbro.github.io/images/HKBUS/icon/icon.png",
+      "email": "barneysbro.app@gmail.com",
+      "founder": {"@type": "Person", "name": "Barney Chen"},
+      "sameAs": [
+        "https://www.facebook.com/hkbusbus/",
+        "https://www.instagram.com/hkbusbus/",
+        "https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
+      ],
+      "makesOffer": [
+        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"HKBUS","operatingSystem":"iOS","url":"https://apps.apple.com/hk/app/id1480194097"}},
+        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"台北倒垃圾","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/id1501309455"}},
+        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"TPEBUS","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/id1482596231"}},
+        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"SGBUS","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/sgbus-singapore-bus/id6744122884"}},
+        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"LONDONBUS","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/londonbus-london-bus/id6744515697"}}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!--
+    THESIS: A live city wayfinding atlas connects five focused utilities; it refuses the generic SaaS hero-and-card grid.
+    OWN-WORLD: Signal yellow, municipal blue, route colors, hard rules, oversized wayfinding type, and screenshots treated as destinations.
+    STORY: City data is noisy; Barneysbro turns it into five clear next steps, then sends visitors to the right App Store page.
+    FIRST VIEWPORT: A declarative headline fills the left, three real product plates form a moving city stack on the right, and the App route sits below.
+    FORM: City wayfinding atlas, grounded direction 3, seed 235bf458.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a class="skip-link" href="#main" data-zh="跳到主要內容" data-en="Skip to content">跳到主要內容</a>
 
-        <!-- Open Graph Meta Tags -->
-        <meta
-            property="og:title"
-            content="Barneysbro Apps - 交通與生活應用程式"
-            data-zh="Barneysbro Apps - 交通與生活應用程式"
-            data-en="Barneysbro Apps - Transportation & Lifestyle Apps"
-        />
-        <meta
-            property="og:description"
-            content="專業的交通與生活應用程式開發，包含香港、新加坡巴士查詢及台北生活服務。"
-            data-zh="專業的交通與生活應用程式開發，包含香港、新加坡巴士查詢及台北生活服務。"
-            data-en="Professional transportation and lifestyle app development, featuring Hong Kong, Singapore bus services and Taipei lifestyle services."
-        />
-        <meta
-            property="og:image"
-            content="https://barneysbro.github.io/images/COVER.jpg"
-        />
-        <meta property="og:url" content="https://barneysbro.github.io" />
-        <meta property="og:type" content="website" />
-
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Barneysbro Apps" />
-        <meta
-            name="twitter:description"
-            content="專業的交通與生活應用程式開發"
-            data-zh="專業的交通與生活應用程式開發"
-            data-en="Professional transportation and lifestyle app development"
-        />
-        <meta
-            name="twitter:image"
-            content="https://barneysbro.github.io/images/COVER.jpg"
-        />
-
-        <!-- Canonical URL -->
-        <link rel="canonical" href="https://barneysbro.github.io" />
-
-        <!-- Structured Data -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "Barneysbro",
-                "description": "Mobile app developer specializing in transportation and lifestyle apps",
-                "url": "https://barneysbro.github.io",
-                "logo": "https://barneysbro.github.io/images/Icon-App-60x603x.png",
-                "email": "barneysbro.app@gmail.com",
-                "sameAs": [
-                    "https://www.facebook.com/hkbusbus/",
-                    "https://www.instagram.com/hkbusbus/",
-                    "https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
-                ],
-                "makesOffer": [
-                    {
-                        "@type": "SoftwareApplication",
-                        "name": "HKBUS",
-                        "operatingSystem": "iOS",
-                        "applicationCategory": "TransportationApplication"
-                    },
-                    {
-                        "@type": "SoftwareApplication",
-                        "name": "台北倒垃圾",
-                        "operatingSystem": "iOS",
-                        "applicationCategory": "UtilitiesApplication"
-                    }
-                ]
-            }
-        </script>
-
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="icon" href="images/Icon-App-60x603x.png" type="image/png" />
-    </head>
-    <body>
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img
-                        src="images/HKBUS/icon/icon.png"
-                        alt="Barneysbro Logo"
-                    />
-                    <span>Barneysbro</span>
-                </div>
-                <div class="nav-menu" id="nav-menu">
-                    <a
-                        href="#home"
-                        class="nav-link"
-                        data-zh="首頁"
-                        data-en="Home"
-                        >首頁</a
-                    >
-                    <a
-                        href="#apps"
-                        class="nav-link"
-                        data-zh="應用程式"
-                        data-en="Apps"
-                        >應用程式</a
-                    >
-                    <a
-                        href="#about"
-                        class="nav-link"
-                        data-zh="關於我們"
-                        data-en="About"
-                        >關於我們</a
-                    >
-                    <a
-                        href="#contact"
-                        class="nav-link"
-                        data-zh="聯絡我們"
-                        data-en="Contact"
-                        >聯絡我們</a
-                    >
-                    <div class="language-switcher">
-                        <button id="lang-toggle" class="lang-btn">
-                            <span class="lang-text">EN</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="nav-toggle" id="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
+    <header class="site-header" data-header>
+        <a class="brand" href="#home" aria-label="Barneysbro home">
+            <img src="images/web/HKBUS/icon.webp" width="42" height="42" alt="">
+            <span>Barneysbro</span>
+        </a>
+        <button class="menu-button" type="button" aria-controls="site-nav" aria-expanded="false" data-menu-button>
+            <span class="sr-only" data-zh="開啟導覽" data-en="Open navigation">開啟導覽</span>
+            <span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
+            <a href="#apps" data-zh="Apps" data-en="Apps">Apps</a>
+            <a href="#about" data-zh="工作方式" data-en="Studio">工作方式</a>
+            <a href="#contact" data-zh="聯絡" data-en="Contact">聯絡</a>
+            <button class="language-button" type="button" data-language aria-label="Switch to English">EN</button>
         </nav>
+    </header>
 
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span
-                            data-zh="優質移動應用程式"
-                            data-en="Quality Mobile Applications"
-                            >優質移動應用程式</span
-                        >
-                        <span
-                            class="highlight"
-                            data-zh="讓生活更便利"
-                            data-en="Making Life Easier"
-                            >讓生活更便利</span
-                        >
-                    </h1>
-                    <p
-                        class="hero-description"
-                        data-zh="專注於交通與生活服務的應用程式開發，為香港、新加坡、倫敦、台灣用戶提供即時、準確的資訊服務。"
-                        data-en="Focused on transportation and lifestyle app development, providing real-time, accurate information services for users in Hong Kong, Singapore, London, and Taiwan."
-                    >
-                        專注於交通與生活服務的應用程式開發，為香港、新加坡、倫敦、台灣用戶提供即時、準確的資訊服務。
-                    </p>
-                    <div class="hero-cta">
-                        <a
-                            href="#apps"
-                            class="btn btn-primary"
-                            data-zh="探索應用程式"
-                            data-en="Explore Apps"
-                            >探索應用程式</a
-                        >
-                        <a
-                            href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
-                            class="btn btn-download"
-                            target="_blank"
-                        >
-                            <img
-                                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                alt="Download on App Store"
-                                style="height: 40px"
-                            />
-                        </a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <h3 class="counter" data-target="5">0</h3>
-                            <p data-zh="應用程式" data-en="Applications">
-                                應用程式
-                            </p>
-                        </div>
-                        <div class="stat">
-                            <h3
-                                class="counter"
-                                data-target="561"
-                                data-suffix="K+"
-                            >
-                                0K+
-                            </h3>
-                            <p data-zh="總下載次數" data-en="Total Downloads">
-                                總下載次數
-                            </p>
-                        </div>
-                        <div class="stat">
-                            <h3 class="counter" data-target="4">0</h3>
-                            <p data-zh="服務地區" data-en="Service Areas">
-                                服務地區
-                            </p>
-                        </div>
-                    </div>
+    <aside class="route-progress" aria-label="App route" data-route-progress>
+        <div class="route-progress__line"><span data-route-line></span></div>
+        <a href="#hkbus" data-route-stop data-color="#ffc928"><span>HK</span><b>HKBUS</b></a>
+        <a href="#tpegarbage" data-route-stop data-color="#30b987"><span>TW</span><b>垃圾</b></a>
+        <a href="#tpebus" data-route-stop data-color="#ff7a45"><span>TP</span><b>TPEBUS</b></a>
+        <a href="#sgbus" data-route-stop data-color="#e72745"><span>SG</span><b>SGBUS</b></a>
+        <a href="#londonbus" data-route-stop data-color="#3156d8"><span>LDN</span><b>LONDON</b></a>
+    </aside>
+
+    <main id="main">
+        <section class="hero" id="home">
+            <div class="hero__copy">
+                <h1>
+                    <span data-zh="城市每天都在移動。" data-en="Cities keep moving.">城市每天都在移動。</span>
+                    <strong data-zh="下一步，應該很清楚。" data-en="Your next move should be clear.">下一步，應該很清楚。</strong>
+                </h1>
+                <p data-zh="Barneysbro 把分散的公車動態與城市生活資料，整理成五個打開就能行動的 iOS App。" data-en="Barneysbro turns fragmented transit and civic data into five focused iOS apps—clear enough to act on immediately.">Barneysbro 把分散的公車動態與城市生活資料，整理成五個打開就能行動的 iOS App。</p>
+                <div class="hero__actions">
+                    <a class="action action--dark" href="#apps" data-zh="沿著路線看 Apps" data-en="Follow the app route">沿著路線看 Apps</a>
+                    <a class="text-link" href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733" target="_blank" rel="noopener" data-zh="App Store 開發者頁面 ↗" data-en="Developer page on the App Store ↗">App Store 開發者頁面 ↗</a>
                 </div>
-                <div class="hero-image">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <img
-                                src="images/hero-app-preview.jpg"
-                                alt="App Preview"
-                                id="hero-preview"
-                            />
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="hero__visual" aria-label="Barneysbro App previews" data-hero-visual>
+                <div class="hero-route" aria-hidden="true"><span></span><i></i></div>
+                <img class="hero-plate hero-plate--one" src="images/web/HKBUS/3.webp" width="800" height="1732" fetchpriority="high" alt="HKBUS 即時到站資訊畫面">
+                <img class="hero-plate hero-plate--two" src="images/web/TPEGARBAGE/1.webp" width="800" height="1732" alt="台北倒垃圾的垃圾車地圖畫面">
+                <img class="hero-plate hero-plate--three" src="images/web/LONDONBUS/2.webp" width="800" height="1739" alt="LONDONBUS 附近站牌地圖畫面">
+            </div>
+            <div class="app-lineup" id="apps" aria-label="Five Barneysbro apps">
+                <a href="#hkbus"><img src="images/web/HKBUS/icon.webp" width="56" height="56" alt=""><span>HKBUS</span><small>香港</small></a>
+                <a href="#tpegarbage"><img src="images/web/TPEGARBAGE/icon.webp" width="56" height="56" alt=""><span data-zh="台北倒垃圾" data-en="Taipei Garbage">台北倒垃圾</span><small data-zh="台灣" data-en="Taiwan">台灣</small></a>
+                <a href="#tpebus"><img src="images/web/TPEBUS/icon.webp" width="56" height="56" alt=""><span>TPEBUS</span><small data-zh="雙北" data-en="Taipei">雙北</small></a>
+                <a href="#sgbus"><img src="images/web/SGBUS/icon.webp" width="56" height="56" alt=""><span>SGBUS</span><small>Singapore</small></a>
+                <a href="#londonbus"><img src="images/web/LONDONBUS/icon.webp" width="56" height="56" alt=""><span>LONDONBUS</span><small>London</small></a>
             </div>
         </section>
 
-        <!-- Apps Section -->
-        <section id="apps" class="apps-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 data-zh="我們的應用程式" data-en="Our Applications">
-                        我們的應用程式
-                    </h2>
-                    <p
-                        data-zh="為不同地區用戶量身打造的交通與生活服務應用"
-                        data-en="Transportation and lifestyle apps tailored for users in different regions"
-                    >
-                        為不同地區用戶量身打造的交通與生活服務應用
-                    </p>
-                </div>
-
-                <div class="apps-grid">
-                    <!-- HKBUS App -->
-                    <div class="app-card" data-app="hkbus">
-                        <div class="app-icon">
-                            <img
-                                src="images/HKBUS/icon/icon.png"
-                                alt="HKBUS App Icon"
-                            />
-                        </div>
-                        <div class="app-info">
-                            <h3>HKBUS</h3>
-                            <p
-                                class="app-tagline"
-                                data-zh="香港最全面的巴士即時查詢"
-                                data-en="Hong Kong's Most Comprehensive Real-time Bus Service"
-                            >
-                                香港最全面的巴士即時查詢
-                            </p>
-                            <p
-                                class="app-description"
-                                data-zh="香港最全面的巴士即時查詢應用程式，支援九巴、龍運巴士、城巴、嶼巴、綠色小巴、港鐵巴士等所有主要巴士公司。提供準確的到站時間預測、智能搜尋、地圖定位、小工具支援和多語言介面，是香港市民日常出行的最佳助手。"
-                                data-en="Hong Kong's most comprehensive real-time bus query app, supporting KMB, LWB, Citybus, NLB, Green Minibus, MTR Bus and all major bus companies. Provides accurate arrival time predictions, smart search, map positioning, widget support and multilingual interface - the best travel companion for Hong Kong residents."
-                            >
-                                香港最全面的巴士即時查詢應用程式，支援九巴、龍運巴士、城巴、嶼巴、綠色小巴、港鐵巴士等所有主要巴士公司。提供準確的到站時間預測、智能搜尋、地圖定位、小工具支援和多語言介面，是香港市民日常出行的最佳助手。
-                            </p>
-                            <div
-                                class="app-screenshots-preview"
-                                id="screenshots-hkbus"
-                            >
-                                <div class="screenshots-slider">
-                                    <!-- Screenshots will be loaded dynamically -->
-                                </div>
-                            </div>
-                            <div class="app-features">
-                                <span
-                                    class="feature-tag"
-                                    data-zh="全港覆蓋"
-                                    data-en="Full Coverage"
-                                    >全港覆蓋</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="即時查詢"
-                                    data-en="Real-time Query"
-                                    >即時查詢</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="智能搜尋"
-                                    data-en="Smart Search"
-                                    >智能搜尋</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="小工具支援"
-                                    data-en="Widget Support"
-                                    >小工具支援</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="多語言介面"
-                                    data-en="Multilingual"
-                                    >多語言介面</span
-                                >
-                            </div>
-                            <div class="app-actions">
-                                <button
-                                    class="btn btn-preview"
-                                    onclick="showAppDetails('hkbus')"
-                                    data-zh="查看詳情"
-                                    data-en="View Details"
-                                >
-                                    查看詳情
-                                </button>
-                                <a
-                                    href="https://apps.apple.com/hk/app/id1480194097"
-                                    class="btn btn-download"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                        alt="Download on App Store"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SGBUS App -->
-                    <div class="app-card" data-app="sgbus">
-                        <div class="app-icon">
-                            <img
-                                src="images/SGBUS/icon/icon.png"
-                                alt="SGBUS App Icon"
-                            />
-                        </div>
-                        <div class="app-info">
-                            <h3>SGBUS</h3>
-                            <p
-                                class="app-tagline"
-                                data-zh="新加坡公共交通專家"
-                                data-en="Singapore Public Transport Expert"
-                            >
-                                新加坡公共交通專家
-                            </p>
-                            <p
-                                class="app-description"
-                                data-zh="整合新加坡所有主要巴士營運商（SBST、GAS、SMRT、TTS）的即時到站查詢應用程式。提供清晰易用的介面設計，支援路線瀏覽、地圖定位、收藏管理和桌面小工具等功能，是新加坡通勤族和遊客的最佳出行助手。"
-                                data-en="Real-time bus arrival app integrating all major Singapore bus operators (SBST, GAS, SMRT, TTS). Features clean and user-friendly interface design, supporting route browsing, map positioning, favorites management and desktop widgets - the best travel companion for Singapore commuters and tourists."
-                            >
-                                整合新加坡所有主要巴士營運商（SBST、GAS、SMRT、TTS）的即時到站查詢應用程式。提供清晰易用的介面設計，支援路線瀏覽、地圖定位、收藏管理和桌面小工具等功能，是新加坡通勤族和遊客的最佳出行助手。
-                            </p>
-                            <div
-                                class="app-screenshots-preview"
-                                id="screenshots-sgbus"
-                            >
-                                <div class="screenshots-slider">
-                                    <!-- Screenshots will be loaded dynamically -->
-                                </div>
-                            </div>
-                            <div class="app-features">
-                                <span
-                                    class="feature-tag"
-                                    data-zh="全島覆蓋"
-                                    data-en="Island-wide Coverage"
-                                    >全島覆蓋</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="智能定位"
-                                    data-en="Smart Location"
-                                    >智能定位</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="桌面小工具"
-                                    data-en="Home Widget"
-                                    >桌面小工具</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="收藏管理"
-                                    data-en="Favorites Management"
-                                    >收藏管理</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="多重搜尋"
-                                    data-en="Multi Search"
-                                    >多重搜尋</span
-                                >
-                            </div>
-                            <div class="app-actions">
-                                <button
-                                    class="btn btn-preview"
-                                    onclick="showAppDetails('sgbus')"
-                                    data-zh="查看詳情"
-                                    data-en="View Details"
-                                >
-                                    查看詳情
-                                </button>
-                                <a
-                                    href="https://apps.apple.com/hk/developer/wei-hsiang-chen/id1016836733"
-                                    class="btn btn-download"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                        alt="Download on App Store"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 台北倒垃圾 App -->
-                    <div class="app-card" data-app="tpegarbage">
-                        <div class="app-icon">
-                            <img
-                                src="images/TPEGARBAGE/icon/icon.png"
-                                alt="台北倒垃圾 App Icon"
-                            />
-                        </div>
-                        <div class="app-info">
-                            <h3
-                                data-zh="台北倒垃圾"
-                                data-en="Taipei Garbage Collection"
-                            >
-                                台北倒垃圾
-                            </h3>
-                            <p
-                                class="app-tagline"
-                                data-zh="台北垃圾車追蹤專家"
-                                data-en="Taipei Garbage Truck Tracking Expert"
-                            >
-                                台北垃圾車追蹤專家
-                            </p>
-                            <p
-                                class="app-description"
-                                data-zh="專為台灣都會區垃圾清運設計的智慧型地圖應用程式，整合台北市、新北市、基隆市垃圾車時刻表與行人垃圾桶位置資訊。提供即時地圖瀏覽、分類地圖模式和常用站點收藏功能，讓您輕鬆掌握清運時間與地點，再也不會錯過垃圾車。"
-                                data-en="Smart map application designed for waste collection in Taiwan's metropolitan areas, integrating garbage truck schedules and trash bin locations in Taipei, New Taipei, and Keelung. Features real-time map browsing, categorized map modes, and favorite locations - never miss the garbage truck again."
-                            >
-                                專為台灣都會區垃圾清運設計的智慧型地圖應用程式，整合台北市、新北市、基隆市垃圾車時刻表與行人垃圾桶位置資訊。提供即時地圖瀏覽、分類地圖模式和常用站點收藏功能，讓您輕鬆掌握清運時間與地點，再也不會錯過垃圾車。
-                            </p>
-                            <div
-                                class="app-screenshots-preview"
-                                id="screenshots-tpegarbage"
-                            >
-                                <div class="screenshots-slider">
-                                    <!-- Screenshots will be loaded dynamically -->
-                                </div>
-                            </div>
-                            <div class="app-features">
-                                <span
-                                    class="feature-tag"
-                                    data-zh="即時地圖"
-                                    data-en="Real-time Map"
-                                    >即時地圖</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="分類模式"
-                                    data-en="Category Mode"
-                                    >分類模式</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="收藏功能"
-                                    data-en="Favorites"
-                                    >收藏功能</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="三區覆蓋"
-                                    data-en="3 Cities Coverage"
-                                    >三區覆蓋</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="推播提醒"
-                                    data-en="Push Notifications"
-                                    >推播提醒</span
-                                >
-                            </div>
-                            <div class="app-actions">
-                                <button
-                                    class="btn btn-preview"
-                                    onclick="showAppDetails('tpegarbage')"
-                                    data-zh="查看詳情"
-                                    data-en="View Details"
-                                >
-                                    查看詳情
-                                </button>
-                                <a
-                                    href="https://apps.apple.com/tw/app/id1501309455"
-                                    class="btn btn-download"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                        alt="Download on App Store"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 台北公車 App -->
-                    <div class="app-card" data-app="tpebus">
-                        <div class="app-icon">
-                            <img
-                                src="images/TPEBUS/icon/icon.png"
-                                alt="台北公車 App Icon"
-                            />
-                        </div>
-                        <div class="app-info">
-                            <h3 data-zh="台北公車" data-en="Taipei Bus">
-                                台北公車
-                            </h3>
-                            <p
-                                class="app-tagline"
-                                data-zh="智慧台北公車通勤專家"
-                                data-en="Smart Taipei Bus Commute Expert"
-                            >
-                                智慧台北公車通勤專家
-                            </p>
-                            <p
-                                class="app-description"
-                                data-zh="全新升級的智慧台北公車動態查詢平台，完整涵蓋台北市、新北市所有公車路線。提供即時站牌查詢、GPS最近站牌定位、個人化瀏覽紀錄、智慧搜尋系統和小工具支援，打造一站式的雙北公車通勤體驗，讓您的每趟行程都更高效有序。"
-                                data-en="Newly upgraded smart Taipei bus dynamic query platform, covering all bus routes in Taipei and New Taipei City. Features real-time stop queries, GPS nearest stop location, personalized browsing history, smart search system and widget support - creating a one-stop commuting experience for greater efficiency."
-                            >
-                                全新升級的智慧台北公車動態查詢平台，完整涵蓋台北市、新北市所有公車路線。提供即時站牌查詢、GPS最近站牌定位、個人化瀏覽紀錄、智慧搜尋系統和小工具支援，打造一站式的雙北公車通勤體驗，讓您的每趟行程都更高效有序。
-                            </p>
-                            <div
-                                class="app-screenshots-preview"
-                                id="screenshots-tpebus"
-                            >
-                                <div class="screenshots-slider">
-                                    <!-- Screenshots will be loaded dynamically -->
-                                </div>
-                            </div>
-                            <div class="app-features">
-                                <span
-                                    class="feature-tag"
-                                    data-zh="雙北覆蓋"
-                                    data-en="Dual City Coverage"
-                                    >雙北覆蓋</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="即時查詢"
-                                    data-en="Real-time Query"
-                                    >即時查詢</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="GPS定位"
-                                    data-en="GPS Location"
-                                    >GPS定位</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="小工具支援"
-                                    data-en="Widget Support"
-                                    >小工具支援</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="收藏管理"
-                                    data-en="Favorites Management"
-                                    >收藏管理</span
-                                >
-                            </div>
-                            <div class="app-actions">
-                                <button
-                                    class="btn btn-preview"
-                                    onclick="showAppDetails('tpebus')"
-                                    data-zh="查看詳情"
-                                    data-en="View Details"
-                                >
-                                    查看詳情
-                                </button>
-                                <a
-                                    href="https://apps.apple.com/tw/app/id1482596231"
-                                    class="btn btn-download"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                        alt="Download on App Store"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 倫敦公車 App -->
-                    <div class="app-card" data-app="londonbus">
-                        <div class="app-icon">
-                            <img
-                                src="images/LONDONBUS/icon/icon.png"
-                                alt="倫敦公車 App Icon"
-                            />
-                        </div>
-                        <div class="app-info">
-                            <h3>LONDONBUS</h3>
-                            <p
-                                class="app-tagline"
-                                data-zh="倫敦巴士即時查詢專家"
-                                data-en="London Bus Real-time Query Expert"
-                            >
-                                倫敦巴士即時查詢專家
-                            </p>
-                            <p
-                                class="app-description"
-                                data-zh="整合倫敦交通局TfL官方資料的即時巴士查詢App，讓倫敦出行變得簡單無壓力。提供即時到站時間查詢、互動式地圖模式、自動定位最近站牌、收藏分組管理和桌面小工具等功能，無論是日常通勤還是城市探索，都是您在倫敦的最佳交通助手。"
-                                data-en="Real-time bus query app integrating official TfL data, making London travel simple and stress-free. Features real-time arrival queries, interactive map mode, automatic nearest stop location, favorites grouping management and home widgets - your best transport companion whether commuting or exploring London."
-                            >
-                                整合倫敦交通局TfL官方資料的即時巴士查詢App，讓倫敦出行變得簡單無壓力。提供即時到站時間查詢、互動式地圖模式、自動定位最近站牌、收藏分組管理和桌面小工具等功能，無論是日常通勤還是城市探索，都是您在倫敦的最佳交通助手。
-                            </p>
-                            <div
-                                class="app-screenshots-preview"
-                                id="screenshots-londonbus"
-                            >
-                                <div class="screenshots-slider">
-                                    <!-- Screenshots will be loaded dynamically -->
-                                </div>
-                            </div>
-                            <div class="app-features">
-                                <span
-                                    class="feature-tag"
-                                    data-zh="TfL官方資料"
-                                    data-en="Official TfL Data"
-                                    >TfL官方資料</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="即時查詢"
-                                    data-en="Real-time Query"
-                                    >即時查詢</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="互動地圖"
-                                    data-en="Interactive Map"
-                                    >互動地圖</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="收藏分組"
-                                    data-en="Favorites Groups"
-                                    >收藏分組</span
-                                >
-                                <span
-                                    class="feature-tag"
-                                    data-zh="桌面小工具"
-                                    data-en="Home Widget"
-                                    >桌面小工具</span
-                                >
-                            </div>
-                            <div class="app-actions">
-                                <button
-                                    class="btn btn-preview"
-                                    onclick="showAppDetails('londonbus')"
-                                    data-zh="查看詳情"
-                                    data-en="View Details"
-                                >
-                                    查看詳情
-                                </button>
-                                <a
-                                    href="https://apps.apple.com/app/id1234567890"
-                                    class="btn btn-download"
-                                    target="_blank"
-                                >
-                                    <img
-                                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                        alt="Download on App Store"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <section class="product product--hk" id="hkbus" data-product data-route-color="#ffc928">
+            <div class="product__copy">
+                <div class="product__identity"><img src="images/web/HKBUS/icon.webp" width="72" height="72" alt="HKBUS icon"><span>Hong Kong</span></div>
+                <h2 data-zh="全香港的巴士動態，一次看懂" data-en="Hong Kong bus arrivals, made legible">全香港的巴士動態，一次看懂</h2>
+                <p data-zh="整合九巴、龍運、城巴、嶼巴、綠色專線小巴及港鐵巴士。查即時到站、附近站點與完整路線，也能規劃直達或一次轉乘行程。" data-en="Live arrivals across Hong Kong’s major operators, with nearby stops, full route maps, favourites, widgets, and direct or one-transfer journey planning.">整合九巴、龍運、城巴、嶼巴、綠色專線小巴及港鐵巴士。查即時到站、附近站點與完整路線，也能規劃直達或一次轉乘行程。</p>
+                <ul class="feature-list">
+                    <li data-zh="主要營辦商即時到站" data-en="Live arrivals across major operators">主要營辦商即時到站</li>
+                    <li data-zh="直達與一次轉乘規劃" data-en="Direct and one-transfer planning">直達與一次轉乘規劃</li>
+                    <li data-zh="附近站點、收藏群組與小工具" data-en="Nearby stops, grouped favourites, and widgets">附近站點、收藏群組與小工具</li>
+                </ul>
+                <a class="action" href="https://apps.apple.com/hk/app/id1480194097" target="_blank" rel="noopener" data-zh="在 App Store 查看 HKBUS ↗" data-en="View HKBUS on the App Store ↗">在 App Store 查看 HKBUS ↗</a>
+            </div>
+            <div class="product__gallery" aria-label="HKBUS screenshots">
+                <figure><img src="images/web/HKBUS/1.webp" width="800" height="1732" loading="lazy" decoding="async" alt="HKBUS 路線總覽"><figcaption data-zh="路線總覽" data-en="Routes at a glance">路線總覽</figcaption></figure>
+                <figure><img src="images/web/HKBUS/2.webp" width="800" height="1732" loading="lazy" decoding="async" alt="HKBUS 附近站點地圖"><figcaption data-zh="附近站點" data-en="Nearby stops">附近站點</figcaption></figure>
+                <figure><img src="images/web/HKBUS/3.webp" width="800" height="1732" loading="lazy" decoding="async" alt="HKBUS 即時到站時間"><figcaption data-zh="即時到站" data-en="Live arrivals">即時到站</figcaption></figure>
             </div>
         </section>
 
-        <!-- App Details Modal -->
-        <div id="app-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeAppDetails()">&times;</span>
-                <div class="modal-body" id="modal-body">
-                    <!-- Dynamic content will be loaded here -->
-                </div>
+        <section class="product product--garbage" id="tpegarbage" data-product data-route-color="#30b987">
+            <div class="product__copy">
+                <div class="product__identity"><img src="images/web/TPEGARBAGE/icon.webp" width="72" height="72" alt="台北倒垃圾 icon"><span>Taiwan</span></div>
+                <h2 data-zh="今天的垃圾，在哪裡、幾點收" data-en="Know where collection happens—and when">今天的垃圾，在哪裡、幾點收</h2>
+                <p data-zh="把各地垃圾車停靠時間與行人垃圾桶放進同一張地圖。可依地區、路名、時間與類型搜尋，收藏常用位置並設定提醒。" data-en="One map for garbage-truck stops and public litter bins, with location and time search, practical filters, saved places, and custom reminders.">把各地垃圾車停靠時間與行人垃圾桶放進同一張地圖。可依地區、路名、時間與類型搜尋，收藏常用位置並設定提醒。</p>
+                <ul class="feature-list">
+                    <li data-zh="垃圾車與行人垃圾桶雙模式" data-en="Garbage-truck and public-bin map modes">垃圾車與行人垃圾桶雙模式</li>
+                    <li data-zh="依地區、路名與時間搜尋" data-en="Search by region, street, and time">依地區、路名與時間搜尋</li>
+                    <li data-zh="常用位置收藏與自訂提醒" data-en="Saved places and custom reminders">常用位置收藏與自訂提醒</li>
+                </ul>
+                <a class="action" href="https://apps.apple.com/tw/app/id1501309455" target="_blank" rel="noopener" data-zh="在 App Store 查看台北倒垃圾 ↗" data-en="View Taipei Garbage on the App Store ↗">在 App Store 查看台北倒垃圾 ↗</a>
             </div>
-        </div>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 data-zh="關於 Barneysbro" data-en="About Barneysbro">
-                        關於 Barneysbro
-                    </h2>
-                    <p
-                        data-zh="專注於交通與生活服務的移動應用開發團隊"
-                        data-en="Mobile app development team focused on transportation and lifestyle services"
-                    >
-                        專注於交通與生活服務的移動應用開發團隊
-                    </p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p
-                            data-zh="我們是專注於交通與生活服務的移動應用開發團隊。自成立以來，我們致力於為亞洲地區用戶提供高品質、實用的移動應用程式。"
-                            data-en="We are a mobile app development team focused on transportation and lifestyle services. Since our establishment, we have been committed to providing high-quality, practical mobile applications for users across Asia."
-                        >
-                            我們是專注於交通與生活服務的移動應用開發團隊。自成立以來，我們致力於為亞洲地區用戶提供高品質、實用的移動應用程式。
-                        </p>
-                        <p
-                            data-zh="我們的應用程式已服務香港、新加坡、倫敦、台灣等地區的用戶，累計下載次數超過 56 萬次。我們相信科技能讓生活更便利，這也是我們持續創新的動力。"
-                            data-en="Our applications serve users in Hong Kong, Singapore, London, Taiwan and other regions, with over 560,000 total downloads. We believe technology can make life more convenient, which drives our continuous innovation."
-                        >
-                            我們的應用程式已服務香港、新加坡、倫敦、台灣等地區的用戶，累計下載次數超過
-                            56
-                            萬次。我們相信科技能讓生活更便利，這也是我們持續創新的動力。
-                        </p>
-                        <div class="about-features">
-                            <div class="feature">
-                                <h4
-                                    data-zh="🚀 創新科技"
-                                    data-en="🚀 Innovative Technology"
-                                >
-                                    🚀 創新科技
-                                </h4>
-                                <p
-                                    data-zh="運用最新技術提供最佳用戶體驗"
-                                    data-en="Utilizing cutting-edge technology for optimal user experience"
-                                >
-                                    運用最新技術提供最佳用戶體驗
-                                </p>
-                            </div>
-                            <div class="feature">
-                                <h4
-                                    data-zh="🎯 用戶導向"
-                                    data-en="🎯 User-Centric"
-                                >
-                                    🎯 用戶導向
-                                </h4>
-                                <p
-                                    data-zh="深入了解用戶需求，設計實用功能"
-                                    data-en="Understanding user needs deeply to design practical features"
-                                >
-                                    深入了解用戶需求，設計實用功能
-                                </p>
-                            </div>
-                            <div class="feature">
-                                <h4
-                                    data-zh="🌏 在地服務"
-                                    data-en="🌏 Localized Service"
-                                >
-                                    🌏 在地服務
-                                </h4>
-                                <p
-                                    data-zh="針對不同地區客製化本地化服務"
-                                    data-en="Customized localization services for different regions"
-                                >
-                                    針對不同地區客製化本地化服務
-                                </p>
-                            </div>
-                            <div class="feature">
-                                <h4
-                                    data-zh="⚡ 即時資訊"
-                                    data-en="⚡ Real-time Information"
-                                >
-                                    ⚡ 即時資訊
-                                </h4>
-                                <p
-                                    data-zh="整合官方資料提供準確即時資訊"
-                                    data-en="Integrating official data for accurate real-time information"
-                                >
-                                    整合官方資料提供準確即時資訊
-                                </p>
-                            </div>
-                            <div class="feature">
-                                <h4
-                                    data-zh="🎨 簡約設計"
-                                    data-en="🎨 Minimalist Design"
-                                >
-                                    🎨 簡約設計
-                                </h4>
-                                <p
-                                    data-zh="注重介面美學與使用體驗的平衡"
-                                    data-en="Balancing interface aesthetics with user experience"
-                                >
-                                    注重介面美學與使用體驗的平衡
-                                </p>
-                            </div>
-                            <div class="feature">
-                                <h4
-                                    data-zh="🔄 持續優化"
-                                    data-en="🔄 Continuous Optimization"
-                                >
-                                    🔄 持續優化
-                                </h4>
-                                <p
-                                    data-zh="定期更新功能回應用戶需求反饋"
-                                    data-en="Regular feature updates responding to user feedback"
-                                >
-                                    定期更新功能回應用戶需求反饋
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="product__gallery" aria-label="台北倒垃圾 screenshots">
+                <figure><img src="images/web/TPEGARBAGE/1.webp" width="800" height="1732" loading="lazy" decoding="async" alt="垃圾車停靠站地圖"><figcaption data-zh="垃圾車地圖" data-en="Truck map">垃圾車地圖</figcaption></figure>
+                <figure><img src="images/web/TPEGARBAGE/3.webp" width="800" height="1732" loading="lazy" decoding="async" alt="垃圾車到達時刻表"><figcaption data-zh="到達時刻" data-en="Collection times">到達時刻</figcaption></figure>
+                <figure><img src="images/web/TPEGARBAGE/4.webp" width="800" height="1732" loading="lazy" decoding="async" alt="行人清潔箱地圖"><figcaption data-zh="行人清潔箱" data-en="Public litter bins">行人清潔箱</figcaption></figure>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2 data-zh="聯絡我們" data-en="Contact Us">聯絡我們</h2>
-                <p
-                    data-zh="有任何問題或建議，歡迎與我們聯繫"
-                    data-en="Feel free to contact us with any questions or suggestions"
-                >
-                    有任何問題或建議，歡迎與我們聯繫
-                </p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h4 data-zh="電子郵件" data-en="Email">電子郵件</h4>
-                        <a href="mailto:barneysbro.app@gmail.com"
-                            >barneysbro.app@gmail.com</a
-                        >
-                    </div>
-                    <div class="contact-item">
-                        <h4 data-zh="社群媒體" data-en="Social Media">
-                            社群媒體
-                        </h4>
-                        <div class="social-links">
-                            <a
-                                href="https://www.facebook.com/hkbusbus/"
-                                target="_blank"
-                                >Facebook</a
-                            >
-                            <a
-                                href="https://www.instagram.com/hkbusbus/"
-                                target="_blank"
-                                >Instagram</a
-                            >
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <h4>App Store</h4>
-                        <a
-                            href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733"
-                            target="_blank"
-                            data-zh="查看所有應用程式"
-                            data-en="View All Apps"
-                            >查看所有應用程式</a
-                        >
-                    </div>
-                </div>
+        <section class="product product--tpe" id="tpebus" data-product data-route-color="#ff7a45">
+            <div class="product__copy">
+                <div class="product__identity"><img src="images/web/TPEBUS/icon.webp" width="72" height="72" alt="TPEBUS icon"><span>Taipei</span></div>
+                <h2 data-zh="雙北公車，到站前就掌握" data-en="Taipei bus timing, before you reach the stop">雙北公車，到站前就掌握</h2>
+                <p data-zh="查看即時到站、附近站牌、路線全圖與服務資訊。收藏常用站點、整理群組，或直接從主畫面小工具查看下一班車。" data-en="Live arrivals across Taipei and New Taipei, with nearby stops, complete route views, history, grouped favourites, and home-screen widgets.">查看即時到站、附近站牌、路線全圖與服務資訊。收藏常用站點、整理群組，或直接從主畫面小工具查看下一班車。</p>
+                <ul class="feature-list">
+                    <li data-zh="台北與新北即時到站" data-en="Live arrivals across Taipei and New Taipei">台北與新北即時到站</li>
+                    <li data-zh="GPS 附近站牌與路線地圖" data-en="GPS nearby stops and route maps">GPS 附近站牌與路線地圖</li>
+                    <li data-zh="瀏覽紀錄、收藏群組與小工具" data-en="History, favourite groups, and widgets">瀏覽紀錄、收藏群組與小工具</li>
+                </ul>
+                <a class="action" href="https://apps.apple.com/tw/app/id1482596231" target="_blank" rel="noopener" data-zh="在 App Store 查看 TPEBUS ↗" data-en="View TPEBUS on the App Store ↗">在 App Store 查看 TPEBUS ↗</a>
+            </div>
+            <div class="product__gallery" aria-label="TPEBUS screenshots">
+                <figure><img src="images/web/TPEBUS/1.webp" width="800" height="1739" loading="lazy" decoding="async" alt="TPEBUS 路線總覽"><figcaption data-zh="路線總覽" data-en="Route overview">路線總覽</figcaption></figure>
+                <figure><img src="images/web/TPEBUS/2.webp" width="800" height="1739" loading="lazy" decoding="async" alt="TPEBUS 附近站牌"><figcaption data-zh="附近站牌" data-en="Nearby stops">附近站牌</figcaption></figure>
+                <figure><img src="images/web/TPEBUS/5.webp" width="800" height="1739" loading="lazy" decoding="async" alt="TPEBUS 即時到站"><figcaption data-zh="即時到站" data-en="Live arrivals">即時到站</figcaption></figure>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <img
-                            src="images/HKBUS/icon/icon.png"
-                            alt="Barneysbro"
-                        />
-                        <p>Barneysbro - Your trusted app developer</p>
-                    </div>
-                    <div class="footer-links">
-                        <div class="link-group">
-                            <h4 data-zh="應用程式" data-en="Applications">
-                                應用程式
-                            </h4>
-                            <a href="https://apps.apple.com/hk/app/id1480194097"
-                                >HKBUS</a
-                            >
-                            <a
-                                href="https://apps.apple.com/tw/app/sgbus-singapore-bus/id6744122884"
-                                >SGBUS</a
-                            >
-                            <a
-                                href="https://apps.apple.com/tw/app/londonbus-london-bus/id6744515697"
-                                >LONDONBUS</a
-                            >
-                            <a
-                                href="https://apps.apple.com/tw/app/id1501309455"
-                                data-zh="台北倒垃圾"
-                                data-en="Taipei Garbage"
-                                >台北倒垃圾</a
-                            >
-                            <a
-                                href="https://apps.apple.com/tw/app/id1482596231"
-                                data-zh="台北公車"
-                                data-en="Taipei Bus"
-                                >台北公車</a
-                            >
-                        </div>
-                        <div class="link-group">
-                            <h4 data-zh="支援" data-en="Support">支援</h4>
-                            <a
-                                href="privacy.html"
-                                data-zh="隱私政策"
-                                data-en="Privacy Policy"
-                                >隱私政策</a
-                            >
-                            <a
-                                href="terms.html"
-                                data-zh="服務條款"
-                                data-en="Terms of Service"
-                                >服務條款</a
-                            >
-                            <a
-                                href="mailto:barneysbro.app@gmail.com"
-                                data-zh="客服支援"
-                                data-en="Customer Support"
-                                >客服支援</a
-                            >
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Barneysbro. All rights reserved.</p>
-                </div>
+        <section class="product product--sg" id="sgbus" data-product data-route-color="#e72745">
+            <div class="product__copy">
+                <div class="product__identity"><img src="images/web/SGBUS/icon.webp" width="72" height="72" alt="SGBUS icon"><span>Singapore</span></div>
+                <h2 data-zh="新加坡下一班車，一眼掌握" data-en="Singapore’s next bus, at a glance">新加坡下一班車，一眼掌握</h2>
+                <p data-zh="整合 SBST、GAS、SMRT 與 TTS，即時查看到站時間、附近站點和完整路線。收藏可分組，也能放到主畫面小工具。" data-en="Real-time arrivals for SBST, GAS, SMRT, and TTS, with nearby stops, complete routes, grouped favourites, history, and home-screen widgets.">整合 SBST、GAS、SMRT 與 TTS，即時查看到站時間、附近站點和完整路線。收藏可分組，也能放到主畫面小工具。</p>
+                <ul class="feature-list">
+                    <li data-zh="四大公共巴士營運商" data-en="Four major public bus operators">四大公共巴士營運商</li>
+                    <li data-zh="附近站點、步行距離與路線地圖" data-en="Nearby stops, walking distance, and maps">附近站點、步行距離與路線地圖</li>
+                    <li data-zh="收藏排序、群組與小工具" data-en="Favourite sorting, groups, and widgets">收藏排序、群組與小工具</li>
+                </ul>
+                <a class="action" href="https://apps.apple.com/tw/app/sgbus-singapore-bus/id6744122884" target="_blank" rel="noopener" data-zh="在 App Store 查看 SGBUS ↗" data-en="View SGBUS on the App Store ↗">在 App Store 查看 SGBUS ↗</a>
             </div>
-        </footer>
+            <div class="product__gallery" aria-label="SGBUS screenshots">
+                <figure><img src="images/web/SGBUS/1.webp" width="800" height="1739" loading="lazy" decoding="async" alt="SGBUS route overview"><figcaption data-zh="路線總覽" data-en="Route overview">路線總覽</figcaption></figure>
+                <figure><img src="images/web/SGBUS/2.webp" width="800" height="1739" loading="lazy" decoding="async" alt="SGBUS nearby stops"><figcaption data-zh="附近站點" data-en="Nearby stops">附近站點</figcaption></figure>
+                <figure><img src="images/web/SGBUS/5.webp" width="800" height="1739" loading="lazy" decoding="async" alt="SGBUS live arrivals"><figcaption data-zh="即時到站" data-en="Live arrivals">即時到站</figcaption></figure>
+            </div>
+        </section>
 
-        <script src="script.js"></script>
-    </body>
+        <section class="product product--london" id="londonbus" data-product data-route-color="#3156d8">
+            <div class="product__copy">
+                <div class="product__identity"><img src="images/web/LONDONBUS/icon.webp" width="72" height="72" alt="LONDONBUS icon"><span>London</span></div>
+                <h2 data-zh="倫敦巴士抵達時間，就在手邊" data-en="London bus arrivals, close at hand">倫敦巴士抵達時間，就在手邊</h2>
+                <p data-zh="使用 TfL 官方開放資料查看即時到站、附近站牌與完整路線。常用站點可分組收藏，並透過主畫面小工具快速查看。" data-en="Official TfL-powered live arrivals, nearby stops, full route maps, grouped favourites, history, and home-screen widgets in one focused app.">使用 TfL 官方開放資料查看即時到站、附近站牌與完整路線。常用站點可分組收藏，並透過主畫面小工具快速查看。</p>
+                <ul class="feature-list">
+                    <li data-zh="TfL 官方開放資料" data-en="Official TfL Open Data">TfL 官方開放資料</li>
+                    <li data-zh="即時到站、附近站牌與完整路線" data-en="Live arrivals, nearby stops, and full routes">即時到站、附近站牌與完整路線</li>
+                    <li data-zh="收藏群組、瀏覽紀錄與小工具" data-en="Favourite groups, history, and widgets">收藏群組、瀏覽紀錄與小工具</li>
+                </ul>
+                <a class="action" href="https://apps.apple.com/tw/app/londonbus-london-bus/id6744515697" target="_blank" rel="noopener" data-zh="在 App Store 查看 LONDONBUS ↗" data-en="View LONDONBUS on the App Store ↗">在 App Store 查看 LONDONBUS ↗</a>
+            </div>
+            <div class="product__gallery" aria-label="LONDONBUS screenshots">
+                <figure><img src="images/web/LONDONBUS/1.webp" width="800" height="1739" loading="lazy" decoding="async" alt="LONDONBUS route overview"><figcaption data-zh="路線總覽" data-en="Route overview">路線總覽</figcaption></figure>
+                <figure><img src="images/web/LONDONBUS/2.webp" width="800" height="1739" loading="lazy" decoding="async" alt="LONDONBUS nearby stops"><figcaption data-zh="附近站牌" data-en="Nearby stops">附近站牌</figcaption></figure>
+                <figure><img src="images/web/LONDONBUS/5.webp" width="800" height="1739" loading="lazy" decoding="async" alt="LONDONBUS live arrivals"><figcaption data-zh="即時到站" data-en="Live arrivals">即時到站</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="studio" id="about">
+            <div class="studio__statement">
+                <h2 data-zh="不是更多資料。是更清楚的下一步。" data-en="Not more data. A clearer next move.">不是更多資料。是更清楚的下一步。</h2>
+                <p data-zh="Barneysbro 是 Barney Chen 的獨立 App studio。每一個產品都從真實、反覆發生的城市問題出發，把官方資料轉譯成幾秒內能理解的畫面。" data-en="Barneysbro is Barney Chen’s independent app studio. Every product begins with a recurring city problem and translates official data into a screen that makes sense in seconds.">Barneysbro 是 Barney Chen 的獨立 App studio。每一個產品都從真實、反覆發生的城市問題出發，把官方資料轉譯成幾秒內能理解的畫面。</p>
+            </div>
+            <div class="studio__principles">
+                <article><h3 data-zh="從場景開始" data-en="Start with the moment">從場景開始</h3><p data-zh="人在站牌前、回家路上、準備倒垃圾時，需要的是答案，不是資料庫。" data-en="At a stop or on the way home, people need an answer—not a database.">人在站牌前、回家路上、準備倒垃圾時，需要的是答案，不是資料庫。</p></article>
+                <article><h3 data-zh="使用官方資料" data-en="Use official sources">使用官方資料</h3><p data-zh="以各地政府與交通營運單位的開放資料為基礎，持續整理與更新。" data-en="Built on open data from local governments and transport operators, then maintained over time.">以各地政府與交通營運單位的開放資料為基礎，持續整理與更新。</p></article>
+                <article><h3 data-zh="為地方而設計" data-en="Design for the place">為地方而設計</h3><p data-zh="不同城市有不同的交通語言與生活節奏，介面也不該只是換一個城市名稱。" data-en="Every city has its own transport language and rhythm; the interface should respect that.">不同城市有不同的交通語言與生活節奏，介面也不該只是換一個城市名稱。</p></article>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <p data-zh="有問題、建議，或發現資料需要更新？" data-en="A question, an idea, or data that needs attention?">有問題、建議，或發現資料需要更新？</p>
+            <h2><a href="mailto:barneysbro.app@gmail.com">barneysbro.app<br>@gmail.com</a></h2>
+            <div class="contact__links">
+                <a href="https://www.instagram.com/hkbusbus/" target="_blank" rel="noopener">Instagram ↗</a>
+                <a href="https://www.facebook.com/hkbusbus/" target="_blank" rel="noopener">Facebook ↗</a>
+                <a href="privacy.html" data-zh="隱私政策" data-en="Privacy">隱私政策</a>
+                <a href="terms.html" data-zh="使用條款" data-en="Terms">使用條款</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div><strong>Barneysbro</strong><span data-zh="城市日常的清楚工具" data-en="Clear tools for everyday cities">城市日常的清楚工具</span></div>
+        <p>© 2026 Barney Chen</p>
+        <a href="#home" data-zh="回到頂端 ↑" data-en="Back to top ↑">回到頂端 ↑</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>

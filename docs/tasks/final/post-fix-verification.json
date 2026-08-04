@@ -1,0 +1,14 @@
+{
+  "320": {
+    "innerWidth": 320,
+    "scrollWidth": 320,
+    "overflow": false,
+    "overflowStyle": "clip"
+  },
+  "375": {
+    "innerWidth": 375,
+    "scrollWidth": 375,
+    "overflow": false,
+    "overflowStyle": "clip"
+  }
+}

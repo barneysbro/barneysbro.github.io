@@ -1,0 +1,11 @@
+Checked 8 routes and 5 HTML files.
+OK: required routes, anchors, and local references exist.
+/                  200
+/index.html        200
+/lost.html         200
+/en/lost.html      200
+/privacy.html      200
+/terms.html        200
+/app-ads.txt       200
+/robots.txt        200
+/sitemap.xml       200

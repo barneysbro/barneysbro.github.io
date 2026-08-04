@@ -1,0 +1,16 @@
+{
+  "viewports": {
+    "320": {"innerWidth": 320, "scrollWidth": 320, "overflow": false},
+    "375": {"innerWidth": 375, "scrollWidth": 375, "overflow": false},
+    "768": {"innerWidth": 768, "scrollWidth": 768, "overflow": false},
+    "1024": {"innerWidth": 1024, "scrollWidth": 1024, "overflow": false},
+    "1440": {"innerWidth": 1440, "scrollWidth": 1440, "overflow": false}
+  },
+  "mobileMenu": {"expandedAfterClick": "true", "expandedAfterEscape": "false"},
+  "language": {"zh": "zh-Hant", "en": "en", "titleUpdated": true},
+  "reducedMotion": {"motionReady": false, "hiddenContent": false},
+  "externalBlankSafety": true,
+  "brokenLocalImages": 0,
+  "localRequestFailures": 0,
+  "notes": "Compiled from the bounded browser verification runs recorded in this directory. A Chrome-profile MaxMind request failed independently of the page and was excluded."
+}
