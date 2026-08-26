@@ -1,6 +1,6 @@
 # App Content Matrix
 
-Verified: 2026-08-04 against the linked App Store pages and local source repositories. Dynamic ratings, versions, sizes, and download totals are deliberately excluded from website copy.
+Verified: 2026-08-27 against the linked App Store pages and local source repositories. Dynamic ratings, versions, sizes, and download totals are deliberately excluded from website copy.
 
 ## HKBUS — 香港巴士
 
@@ -58,10 +58,32 @@ Verified: 2026-08-04 against the linked App Store pages and local source reposit
 - **Verified features:** all TfL London bus services; live arrivals; nearby stops; route sequence/map; history; grouped favourites and sorting; widgets; quick/custom keyboard.
 - **Data:** Transport for London Open Data.
 
+## RainCam
+
+- **App Store:** Public product URL not yet available.
+- **Job:** Check nearby and route-adjacent traffic cameras before setting out.
+- **ZH headline:** 出發以前，先看見沿途路況
+- **ZH summary:** 在地圖查看全臺 17 縣市超過 3,300 支交通攝影機。搜尋目的地、從 Google 地圖分享地點，或沿著規劃路線快速查看周邊即時影像。
+- **EN headline:** See the road before you set out
+- **EN summary:** Explore more than 3,300 traffic cameras across 17 Taiwanese cities and counties. Search a destination, share a place from Google Maps, or check live images along a planned route.
+- **Verified features:** 17-city/county coverage; more than 3,300 cameras; place and address search; Google Maps sharing; nearby and route-adjacent cameras; saved places and cameras; 20-item recent history; standard/satellite maps; Siri and Shortcuts; iPhone and iPad support.
+- **Data:** listed local transportation authorities, Directorate General of Highways, and Ministry of Transportation and Communications TDX.
+
+## Quick Copy
+
+- **App Store:** https://apps.apple.com/app/id1207563310
+- **Job:** Reuse frequent replies without retyping or leaving the current app.
+- **ZH headline:** 常用回覆，不必再打第二次
+- **ZH summary:** 儲存經常使用的留言、連結與句子，依用途整理成群組，再從 Quick Copy 鍵盤一鍵輸入。主畫面小工具也能快速複製或新增回覆。
+- **EN headline:** Type it once. Reuse it anywhere.
+- **EN summary:** Save the messages, links, and phrases you use most. Organize them into groups, insert them from the Quick Copy keyboard, or copy and add replies from a Home Screen widget.
+- **Verified features:** reusable text; groups and ordering; custom keyboard; group switching inside the keyboard; medium and large Home Screen widgets; widget group selection; copy and add-reply actions.
+- **Data:** saved replies and groups are stored in the app-group container on the device.
+
 ## Shared studio copy
 
-- **ZH:** 五個 App，服務四座城市生活圈。每一個產品都從真實的日常問題出發，把龐雜的官方資料整理成打開就能採取行動的答案。
-- **EN:** Five apps across four urban regions. Each starts with a recurring daily question and turns fragmented official data into an answer people can act on immediately.
+- **ZH:** 七個 App，處理每天反覆出現的城市資訊與操作。每一個產品都從真實的日常問題出發，把分散的資料或重複的步驟整理成打開就能採取行動的答案。
+- **EN:** Seven apps for recurring city questions and everyday actions. Each starts with a real daily problem and turns fragmented information or repeated steps into an answer people can act on immediately.
 
 ## Claims removed from the incumbent page
 

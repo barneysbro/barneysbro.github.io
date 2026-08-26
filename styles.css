@@ -284,7 +284,7 @@ button { font: inherit; }
     z-index: 4;
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     margin: 0 -7vw;
     border-top: 1px solid var(--ink);
     background: var(--yellow);
@@ -324,6 +324,8 @@ button { font: inherit; }
 .product--tpe { --product-color: #ff9869; }
 .product--sg { --product-color: #ef4661; }
 .product--london { --product-color: #4566dd; color: white; }
+.product--raincam { --product-color: #2f7d64; color: white; }
+.product--quickcopy { --product-color: #86a9e8; }
 .product__copy {
     align-self: start;
     min-width: 0;
@@ -362,8 +364,19 @@ button { font: inherit; }
 .feature-list li::before { content: ''; position: absolute; top: 21px; left: 3px; width: 8px; height: 8px; border: 2px solid currentColor; border-radius: 50%; }
 .product .action { align-self: flex-start; border-color: currentColor; color: inherit; }
 .product .action:hover { background: var(--ink); border-color: var(--ink); color: white; }
-.product--london .product__identity img { border-color: white; }
-.product--london .action:hover { background: white; border-color: white; color: var(--blue); }
+.product--london .product__identity img,
+.product--raincam .product__identity img { border-color: white; }
+.product--london .action:hover,
+.product--raincam .action:hover { background: white; border-color: white; color: var(--blue); }
+.product .action--status,
+.product .action--status:hover {
+    border-color: currentColor;
+    background: transparent;
+    color: inherit;
+    cursor: default;
+    opacity: .72;
+    transform: none;
+}
 
 .product__gallery {
     min-width: 0;
@@ -378,14 +391,17 @@ button { font: inherit; }
     color: rgba(16, 23, 34, .16);
     overflow: hidden;
 }
-.product--london .product__gallery { color: rgba(255,255,255,.22); }
+.product--london .product__gallery,
+.product--raincam .product__gallery { color: rgba(255,255,255,.22); }
 .product__gallery figure { min-width: 0; margin: 0; color: var(--ink); transition: transform 240ms cubic-bezier(.16,1,.3,1); }
-.product--london .product__gallery figure { color: white; }
+.product--london .product__gallery figure,
+.product--raincam .product__gallery figure { color: white; }
 .product__gallery figure:nth-child(1) { transform: translateY(-7%); }
 .product__gallery figure:nth-child(3) { transform: translateY(7%); }
 .product__gallery figure:hover { transform: translateY(-3%) scale(1.025); }
 .product__gallery img { width: 100%; border: 1px solid var(--ink); box-shadow: 0 28px 54px rgba(16, 23, 34, .22); }
-.product--london .product__gallery img { border-color: white; }
+.product--london .product__gallery img,
+.product--raincam .product__gallery img { border-color: white; }
 .product__gallery figcaption { margin-top: 12px; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
 
 .studio {
@@ -529,13 +545,19 @@ button { font: inherit; }
     .hero-plate--two { top: 8%; right: -8%; }
     .hero-plate--three { bottom: 1%; left: -7%; }
     .app-lineup {
-        grid-template-columns: repeat(5, 128px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         margin: 0 -18px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
     }
-    .app-lineup a { grid-template-columns: 44px 1fr; min-height: 88px; padding: 12px; scroll-snap-align: start; }
+    .app-lineup a {
+        grid-template-columns: 44px minmax(0, 1fr);
+        min-height: 96px;
+        padding: 12px;
+        border-bottom: 1px solid var(--ink);
+    }
+    .app-lineup a:nth-child(2n) { border-right: 0; }
+    .app-lineup a:last-child { border-right: 1px solid var(--ink); border-bottom: 0; }
     .app-lineup img { width: 44px; height: 44px; }
+    .app-lineup span { overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: anywhere; }
 
     .product { min-height: auto; grid-template-columns: 1fr; }
     .product__copy { position: static; min-height: auto; padding: 82px 22px 58px; border-right: 0; border-bottom: 1px solid currentColor; }

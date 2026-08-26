@@ -49,8 +49,8 @@ function setLanguage(language) {
             : 'Barneysbro — Apps for moving cities';
     document.querySelector('meta[name="description"]').content =
         lang === 'zh'
-            ? 'Barneysbro 打造 HKBUS、台北倒垃圾、TPEBUS、SGBUS 與 LONDONBUS，把城市開放資料整理成每天都用得上的 iOS App。'
-            : 'Barneysbro makes five focused iOS apps that turn city open data into clear tools for everyday transport and routines.';
+            ? 'Barneysbro 打造七款實用 iOS App，從城市交通、垃圾清運與即時路況，到常用文字快速輸入。'
+            : 'Barneysbro makes seven focused iOS apps for transit, city routines, live road cameras, and faster replies.';
 
     try {
         localStorage.setItem('barneysbro-language', lang);

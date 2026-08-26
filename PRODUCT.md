@@ -12,17 +12,17 @@ Static HTML, CSS, and vanilla JavaScript deployed with GitHub Pages. Preserve th
 
 ## Users
 
-- People in Hong Kong, Taiwan, Singapore, and London looking for a focused iOS tool for daily transport or waste-collection routines.
+- People looking for a focused iOS tool for daily transport, waste collection, traffic-camera checks, or reusable text.
 - Existing App users who follow support, privacy, terms, and lost-property links from inside an App.
 - Prospective users evaluating whether each App covers their city and daily task before opening the App Store.
 
 ## Product Purpose
 
-Barneysbro is an independent App studio by Barney Chen. The website explains a portfolio of five practical city utilities, shows how each one reduces uncertainty in a recurring urban task, and directs visitors to the correct App Store product page or support resource.
+Barneysbro is an independent App studio by Barney Chen. The website explains a portfolio of seven practical iOS utilities, shows how each one reduces friction in a recurring daily task, and directs visitors to the correct App Store product page or support resource.
 
 ## Positioning
 
-One independent studio turns official, fragmented city data into focused native tools for one place and one daily decision at a time: when the bus arrives, which stop is nearby, or when and where waste is collected.
+One independent studio turns fragmented information and repeated daily actions into focused native tools: when the bus arrives, where waste is collected, what the road looks like, or which saved reply to send.
 
 ## Operating Context
 
@@ -30,7 +30,7 @@ Visitors often arrive on mobile, may be outside or in transit, and need to scan 
 
 ## Capabilities and Constraints
 
-- Portfolio: HKBUS, 台北倒垃圾, TPEBUS, SGBUS, and LONDONBUS.
+- Portfolio: HKBUS, 台北倒垃圾, TPEBUS, SGBUS, LONDONBUS, RainCam, and Quick Copy.
 - The homepage supports Traditional Chinese and English.
 - Existing routes and homepage fragments are a compatibility contract; see `docs/tasks/baseline/README.md`.
 - Product claims must be supported by source repositories or current App Store listings.
@@ -47,9 +47,9 @@ Visitors often arrive on mobile, may be outside or in transit, and need to scan 
 
 ## Evidence on Hand
 
-- Five App icons and 36 product screenshots under `images/`.
+- Seven App icons and product screenshots under `images/`.
 - Current App Store descriptions and product URLs recorded in `docs/app-content.md`.
-- Source repositories at `/Users/bct-barney/Documents/{hkbus,tpegarbage,tpebus,sgbus,londonbus}`.
+- Source repositories at `/Users/bct-barney/Documents/{hkbus,tpegarbage,tpebus,sgbus,londonbus,quickCopy,RainCamTaipei}`.
 - `images/COVER.jpg` and `images/TPEGARBAGE_COVER.jpg`.
 - No approved testimonials, customer logos, revenue, usage totals, or stable download totals. Future work must not fabricate them.
 

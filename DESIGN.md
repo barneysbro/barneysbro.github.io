@@ -1,6 +1,6 @@
 ---
 name: Barneysbro City Route Atlas
-description: A civic-wayfinding design system for five focused city apps.
+description: A civic-wayfinding design system for seven focused everyday apps.
 colors:
   signal-yellow: "#ffd21c"
   municipal-blue: "#1436b8"
@@ -8,6 +8,8 @@ colors:
   route-orange: "#ff9869"
   route-red: "#ef4661"
   route-blue: "#4566dd"
+  route-forest: "#2f7d64"
+  route-periwinkle: "#86a9e8"
   transit-ink: "#101722"
   cool-paper: "#f3f6f4"
   white: "#ffffff"
@@ -83,6 +85,8 @@ The full palette assigns a distinct, saturated field to each urban destination w
 - **Route Orange:** Taipei transport field.
 - **Route Red:** Singapore transport field.
 - **Route Blue:** London transport and contact fields.
+- **Route Forest:** RainCam traffic-camera field.
+- **Route Periwinkle:** Quick Copy utility field.
 
 ### Neutral
 - **Transit Ink:** Primary text, hard rules, actions, and dark studio surface.
@@ -110,9 +114,9 @@ The full palette assigns a distinct, saturated field to each urban destination w
 
 ## Layout
 
-Wide product sections use a two-part atlas spread: a sticky explanatory column and a larger three-plate proof field. The hero uses the same split, then places a five-stop lineup across its lower edge. Section boundaries are full-width one-pixel rules.
+Wide product sections use a two-part atlas spread: a sticky explanatory column and a larger three-plate proof field. The hero uses the same split, then places a seven-stop lineup across its lower edge. Section boundaries are full-width one-pixel rules.
 
-At 800px and below, every split becomes a single reading column. Persistent route navigation becomes a horizontal, snap-scrolling App lineup; screenshot proof becomes a separate horizontal snap rail. At 320px the document remains contained while those rails scroll locally.
+At 800px and below, every split becomes a single reading column. Persistent route navigation becomes a two-column App lineup so every name remains visible; screenshot proof becomes a horizontal snap rail. At 320px the document remains contained while the screenshot rail scrolls locally.
 
 Spacing alternates compact internal groups with large section separation. Product sections use viewport-relative padding on wide screens and 22px page gutters on phones.
 
@@ -139,7 +143,7 @@ Actions and information fields are square. Route stops are circles because they 
 - **Route progress:** circular station codes connected by a three-pixel line; current location receives the section color and `aria-current`.
 
 ### App Lineup
-A five-stop, ruled strip with native App icons, product name, and region. It scrolls and snaps horizontally on mobile rather than shrinking labels into illegibility.
+A seven-stop, ruled strip with native App icons, product name, and region. It becomes a two-column ruled grid on mobile rather than shrinking or truncating labels.
 
 ### Product Gallery
 - Three portrait screenshot plates form the proof field. On wide screens the outside plates shift vertically to create route rhythm; on mobile they become a local horizontal snap rail.

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Barneysbro — 城市交通與生活 App</title>
-    <meta name="description" content="Barneysbro 打造 HKBUS、台北倒垃圾、TPEBUS、SGBUS 與 LONDONBUS，把城市開放資料整理成每天都用得上的 iOS App。">
+    <meta name="description" content="Barneysbro 打造七款實用 iOS App，從城市交通、垃圾清運與即時路況，到常用文字快速輸入。">
     <meta name="author" content="Barney Chen">
     <meta name="theme-color" content="#ffd21c">
     <link rel="canonical" href="https://barneysbro.github.io/">
@@ -14,7 +14,7 @@
     <link rel="preload" href="images/web/HKBUS/3.webp" as="image" type="image/webp">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Barneysbro — Apps for moving cities">
-    <meta property="og:description" content="Five focused iOS apps for bus arrivals and everyday city routines.">
+    <meta property="og:description" content="Seven focused iOS apps for transit, city routines, live road cameras, and faster replies.">
     <meta property="og:url" content="https://barneysbro.github.io/">
     <meta property="og:image" content="https://barneysbro.github.io/images/COVER.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -39,16 +39,17 @@
         {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"台北倒垃圾","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/id1501309455"}},
         {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"TPEBUS","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/id1482596231"}},
         {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"SGBUS","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/sgbus-singapore-bus/id6744122884"}},
-        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"LONDONBUS","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/londonbus-london-bus/id6744515697"}}
+        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"LONDONBUS","operatingSystem":"iOS","url":"https://apps.apple.com/tw/app/londonbus-london-bus/id6744515697"}},
+        {"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"Quick Copy","operatingSystem":"iOS","url":"https://apps.apple.com/app/id1207563310"}}
       ]
     }
     </script>
 </head>
 <body>
     <!--
-    THESIS: A live city wayfinding atlas connects five focused utilities; it refuses the generic SaaS hero-and-card grid.
+    THESIS: A live route atlas connects seven focused utilities; it refuses the generic SaaS hero-and-card grid.
     OWN-WORLD: Signal yellow, municipal blue, route colors, hard rules, oversized wayfinding type, and screenshots treated as destinations.
-    STORY: City data is noisy; Barneysbro turns it into five clear next steps, then sends visitors to the right App Store page.
+    STORY: City data and repeated daily tasks are noisy; Barneysbro turns them into seven clear next steps, then sends visitors to the right App Store page.
     FIRST VIEWPORT: A declarative headline fills the left, three real product plates form a moving city stack on the right, and the App route sits below.
     FORM: City wayfinding atlas, grounded direction 3, seed 235bf458.
     FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
@@ -79,6 +80,8 @@
         <a href="#tpebus" data-route-stop data-color="#ff7a45"><span>TP</span><b>TPEBUS</b></a>
         <a href="#sgbus" data-route-stop data-color="#e72745"><span>SG</span><b>SGBUS</b></a>
         <a href="#londonbus" data-route-stop data-color="#3156d8"><span>LDN</span><b>LONDON</b></a>
+        <a href="#raincam" data-route-stop data-color="#2f7d64"><span>CAM</span><b>RAINCAM</b></a>
+        <a href="#quickcopy" data-route-stop data-color="#86a9e8"><span>QC</span><b>QUICK COPY</b></a>
     </aside>
 
     <main id="main">
@@ -88,7 +91,7 @@
                     <span data-zh="城市每天都在移動。" data-en="Cities keep moving.">城市每天都在移動。</span>
                     <strong data-zh="下一步，應該很清楚。" data-en="Your next move should be clear.">下一步，應該很清楚。</strong>
                 </h1>
-                <p data-zh="Barneysbro 把分散的公車動態與城市生活資料，整理成五個打開就能行動的 iOS App。" data-en="Barneysbro turns fragmented transit and civic data into five focused iOS apps—clear enough to act on immediately.">Barneysbro 把分散的公車動態與城市生活資料，整理成五個打開就能行動的 iOS App。</p>
+                <p data-zh="Barneysbro 把分散的城市資訊與每天重複的操作，整理成七個打開就能行動的 iOS App。" data-en="Barneysbro turns fragmented city information and repeated daily tasks into seven focused iOS apps—clear enough to act on immediately.">Barneysbro 把分散的城市資訊與每天重複的操作，整理成七個打開就能行動的 iOS App。</p>
                 <div class="hero__actions">
                     <a class="action action--dark" href="#apps" data-zh="沿著路線看 Apps" data-en="Follow the app route">沿著路線看 Apps</a>
                     <a class="text-link" href="https://apps.apple.com/tw/developer/wei-hsiang-chen/id1016836733" target="_blank" rel="noopener" data-zh="App Store 開發者頁面 ↗" data-en="Developer page on the App Store ↗">App Store 開發者頁面 ↗</a>
@@ -100,12 +103,14 @@
                 <img class="hero-plate hero-plate--two" src="images/web/TPEGARBAGE/1.webp" width="800" height="1732" alt="台北倒垃圾的垃圾車地圖畫面">
                 <img class="hero-plate hero-plate--three" src="images/web/LONDONBUS/2.webp" width="800" height="1739" alt="LONDONBUS 附近站牌地圖畫面">
             </div>
-            <div class="app-lineup" id="apps" aria-label="Five Barneysbro apps">
+            <div class="app-lineup" id="apps" aria-label="Seven Barneysbro apps">
                 <a href="#hkbus"><img src="images/web/HKBUS/icon.webp" width="56" height="56" alt=""><span>HKBUS</span><small>香港</small></a>
                 <a href="#tpegarbage"><img src="images/web/TPEGARBAGE/icon.webp" width="56" height="56" alt=""><span data-zh="台北倒垃圾" data-en="Taipei Garbage">台北倒垃圾</span><small data-zh="台灣" data-en="Taiwan">台灣</small></a>
                 <a href="#tpebus"><img src="images/web/TPEBUS/icon.webp" width="56" height="56" alt=""><span>TPEBUS</span><small data-zh="雙北" data-en="Taipei">雙北</small></a>
                 <a href="#sgbus"><img src="images/web/SGBUS/icon.webp" width="56" height="56" alt=""><span>SGBUS</span><small>Singapore</small></a>
                 <a href="#londonbus"><img src="images/web/LONDONBUS/icon.webp" width="56" height="56" alt=""><span>LONDONBUS</span><small>London</small></a>
+                <a href="#raincam"><img src="images/web/RAINCAM/icon.webp" width="56" height="56" alt=""><span>RainCam</span><small data-zh="台灣" data-en="Taiwan">台灣</small></a>
+                <a href="#quickcopy"><img src="images/web/QUICKCOPY/icon.webp" width="56" height="56" alt=""><span>Quick Copy</span><small data-zh="效率工具" data-en="Utility">效率工具</small></a>
             </div>
         </section>
 
@@ -204,15 +209,53 @@
             </div>
         </section>
 
+        <section class="product product--raincam" id="raincam" data-product data-route-color="#2f7d64">
+            <div class="product__copy">
+                <div class="product__identity"><img src="images/web/RAINCAM/icon.webp" width="72" height="72" alt="RainCam icon"><span>Taiwan</span></div>
+                <h2 data-zh="出發以前，先看見沿途路況" data-en="See the road before you set out">出發以前，先看見沿途路況</h2>
+                <p data-zh="在地圖查看全臺 17 縣市超過 3,300 支交通攝影機。搜尋目的地、從 Google 地圖分享地點，或沿著規劃路線快速查看周邊即時影像。" data-en="Explore more than 3,300 traffic cameras across 17 Taiwanese cities and counties. Search a destination, share a place from Google Maps, or check live images along a planned route.">在地圖查看全臺 17 縣市超過 3,300 支交通攝影機。搜尋目的地、從 Google 地圖分享地點，或沿著規劃路線快速查看周邊即時影像。</p>
+                <ul class="feature-list">
+                    <li data-zh="17 縣市、超過 3,300 支交通攝影機" data-en="More than 3,300 cameras across 17 regions">17 縣市、超過 3,300 支交通攝影機</li>
+                    <li data-zh="地點搜尋、Google 地圖分享與路線查看" data-en="Place search, Google Maps sharing, and route views">地點搜尋、Google 地圖分享與路線查看</li>
+                    <li data-zh="收藏地點、攝影機與最近查看紀錄" data-en="Saved places, cameras, and recent views">收藏地點、攝影機與最近查看紀錄</li>
+                </ul>
+                <span class="action action--status" aria-disabled="true" data-zh="App Store 頁面準備中" data-en="App Store page in preparation">App Store 頁面準備中</span>
+            </div>
+            <div class="product__gallery" aria-label="RainCam screenshots">
+                <figure><img src="images/web/RAINCAM/1.webp" width="800" height="1739" loading="lazy" decoding="async" alt="RainCam 交通攝影機地圖"><figcaption data-zh="即時影像地圖" data-en="Live camera map">即時影像地圖</figcaption></figure>
+                <figure><img src="images/web/RAINCAM/2.webp" width="800" height="1739" loading="lazy" decoding="async" alt="RainCam 沿途攝影機路線"><figcaption data-zh="沿途路況" data-en="Cameras along the route">沿途路況</figcaption></figure>
+                <figure><img src="images/web/RAINCAM/3.webp" width="800" height="1739" loading="lazy" decoding="async" alt="RainCam 收藏的地點與攝影機"><figcaption data-zh="收藏整理" data-en="Saved places and cameras">收藏整理</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="product product--quickcopy" id="quickcopy" data-product data-route-color="#86a9e8">
+            <div class="product__copy">
+                <div class="product__identity"><img src="images/web/QUICKCOPY/icon.webp" width="72" height="72" alt="Quick Copy icon"><span>Utility</span></div>
+                <h2 data-zh="常用回覆，不必再打第二次" data-en="Type it once. Reuse it anywhere.">常用回覆，不必再打第二次</h2>
+                <p data-zh="儲存經常使用的留言、連結與句子，依用途整理成群組，再從 Quick Copy 鍵盤一鍵輸入。主畫面小工具也能快速複製或新增回覆。" data-en="Save the messages, links, and phrases you use most. Organize them into groups, insert them from the Quick Copy keyboard, or copy and add replies from a Home Screen widget.">儲存經常使用的留言、連結與句子，依用途整理成群組，再從 Quick Copy 鍵盤一鍵輸入。主畫面小工具也能快速複製或新增回覆。</p>
+                <ul class="feature-list">
+                    <li data-zh="儲存、編輯與分組整理常用文字" data-en="Save, edit, and group reusable text">儲存、編輯與分組整理常用文字</li>
+                    <li data-zh="透過自訂鍵盤在任何 App 快速輸入" data-en="Insert replies from the custom keyboard">透過自訂鍵盤在任何 App 快速輸入</li>
+                    <li data-zh="中型與大型主畫面小工具" data-en="Medium and large Home Screen widgets">中型與大型主畫面小工具</li>
+                </ul>
+                <a class="action" href="https://apps.apple.com/app/id1207563310" target="_blank" rel="noopener" data-zh="在 App Store 查看 Quick Copy ↗" data-en="View Quick Copy on the App Store ↗">在 App Store 查看 Quick Copy ↗</a>
+            </div>
+            <div class="product__gallery" aria-label="Quick Copy screenshots">
+                <figure><img src="images/web/QUICKCOPY/1.webp" width="800" height="1739" loading="lazy" decoding="async" alt="Quick Copy 常用回覆清單"><figcaption data-zh="常用回覆" data-en="Quick replies">常用回覆</figcaption></figure>
+                <figure><img src="images/web/QUICKCOPY/2.webp" width="800" height="1739" loading="lazy" decoding="async" alt="Quick Copy 自訂鍵盤"><figcaption data-zh="一鍵輸入" data-en="One-tap keyboard">一鍵輸入</figcaption></figure>
+                <figure><img src="images/web/QUICKCOPY/3.webp" width="800" height="1739" loading="lazy" decoding="async" alt="Quick Copy 主畫面小工具"><figcaption data-zh="主畫面小工具" data-en="Home Screen widget">主畫面小工具</figcaption></figure>
+            </div>
+        </section>
+
         <section class="studio" id="about">
             <div class="studio__statement">
-                <h2 data-zh="不是更多資料。是更清楚的下一步。" data-en="Not more data. A clearer next move.">不是更多資料。是更清楚的下一步。</h2>
-                <p data-zh="Barneysbro 是 Barney Chen 的獨立 App studio。每一個產品都從真實、反覆發生的城市問題出發，把官方資料轉譯成幾秒內能理解的畫面。" data-en="Barneysbro is Barney Chen’s independent app studio. Every product begins with a recurring city problem and translates official data into a screen that makes sense in seconds.">Barneysbro 是 Barney Chen 的獨立 App studio。每一個產品都從真實、反覆發生的城市問題出發，把官方資料轉譯成幾秒內能理解的畫面。</p>
+                <h2 data-zh="不是更多步驟。是更清楚的下一步。" data-en="Not more steps. A clearer next move.">不是更多步驟。是更清楚的下一步。</h2>
+                <p data-zh="Barneysbro 是 Barney Chen 的獨立 App studio。每一個產品都從真實、反覆發生的日常問題出發，把分散的資料或重複的操作，整理成幾秒內就能完成的下一步。" data-en="Barneysbro is Barney Chen’s independent app studio. Every product begins with a recurring daily problem and turns fragmented information or repetitive work into a next step that takes only seconds.">Barneysbro 是 Barney Chen 的獨立 App studio。每一個產品都從真實、反覆發生的日常問題出發，把分散的資料或重複的操作，整理成幾秒內就能完成的下一步。</p>
             </div>
             <div class="studio__principles">
-                <article><h3 data-zh="從場景開始" data-en="Start with the moment">從場景開始</h3><p data-zh="人在站牌前、回家路上、準備倒垃圾時，需要的是答案，不是資料庫。" data-en="At a stop or on the way home, people need an answer—not a database.">人在站牌前、回家路上、準備倒垃圾時，需要的是答案，不是資料庫。</p></article>
+                <article><h3 data-zh="從場景開始" data-en="Start with the moment">從場景開始</h3><p data-zh="人在站牌前、出發上路、準備倒垃圾或再次輸入同一句話時，需要的是答案，不是更多步驟。" data-en="At a stop, before a drive, on the way home, or typing the same reply again, people need an answer—not more steps.">人在站牌前、出發上路、準備倒垃圾或再次輸入同一句話時，需要的是答案，不是更多步驟。</p></article>
                 <article><h3 data-zh="使用官方資料" data-en="Use official sources">使用官方資料</h3><p data-zh="以各地政府與交通營運單位的開放資料為基礎，持續整理與更新。" data-en="Built on open data from local governments and transport operators, then maintained over time.">以各地政府與交通營運單位的開放資料為基礎，持續整理與更新。</p></article>
-                <article><h3 data-zh="為地方而設計" data-en="Design for the place">為地方而設計</h3><p data-zh="不同城市有不同的交通語言與生活節奏，介面也不該只是換一個城市名稱。" data-en="Every city has its own transport language and rhythm; the interface should respect that.">不同城市有不同的交通語言與生活節奏，介面也不該只是換一個城市名稱。</p></article>
+                <article><h3 data-zh="為當下而設計" data-en="Design for the moment">為當下而設計</h3><p data-zh="不同城市與日常情境有不同節奏，介面應該讓最常用的下一步留在手邊。" data-en="Every city and daily context has its own rhythm; the interface should keep the next useful action close at hand.">不同城市與日常情境有不同節奏，介面應該讓最常用的下一步留在手邊。</p></article>
             </div>
         </section>
 
